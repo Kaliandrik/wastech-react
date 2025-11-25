@@ -1,7 +1,7 @@
-// dashboard/tela_inicial/components/Header.tsx
 import React, { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../../hooks/useAuth';
-import { usePlants } from '../../hooks/usePlants'; // ✅ IMPORTAR usePlants
+import { usePlants } from '../../hooks/usePlants';
+import { useAvatar } from '../../hooks/useAvatar';
 import { auth } from '../../firebase/config';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +10,8 @@ export const Header: React.FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user } = useAuth();
-  const { userLevel } = usePlants(); // ✅ PEGAR O NÍVEL DO HOOK
+  const { userLevel } = usePlants();
+  const userAvatar = useAvatar();
   const navigate = useNavigate();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -88,18 +89,16 @@ export const Header: React.FC = () => {
                 setDropdownOpen(!dropdownOpen);
               }}
             >
-              <img 
-                src={user?.photoURL || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwktGunb0a4j8gZGwCIvKQiq9pf1n8bGA0QkfqzYx0jsz12RU9syffpA2SZ6svdnUovOg&usqp=CAU"} 
-                alt="Usuário" 
-                className="w-8 h-8 rounded-full border-2 border-green-200"
-              />
+              {/* ✅ AVATAR DO LOCALSTORAGE */}
+              <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-white text-sm font-bold border-2 border-green-200">
+                {userAvatar}
+              </div>
               <div className="hidden lg:flex flex-col items-start">
                 <span className="font-semibold text-green-700 text-sm">{user?.displayName || 'Usuário'}</span>
                 <span className="flex items-center space-x-1 text-xs text-green-600">
                   <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clipRule="evenodd"/>
                   </svg>
-                  {/* ✅ NÍVEL DINÂMICO */}
                   <span>Nv. {userLevel}</span>
                 </span>
               </div>
@@ -115,27 +114,45 @@ export const Header: React.FC = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="px-4 py-3 border-b border-gray-100">
-                  <p className="text-sm font-medium text-gray-900">{user?.displayName || 'Usuário'}</p>
-                  <p className="text-sm text-gray-500">{user?.email || 'wastech@gmail.com'}</p>
-                  {/* ✅ NÍVEL NO DROPDOWN */}
-                  <p className="text-xs text-green-600 font-medium mt-1">Nível {userLevel}</p>
+                  <div className="flex items-center space-x-3 mb-2">
+                    <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-white text-lg">
+                      {userAvatar}
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">{user?.displayName || 'Usuário'}</p>
+                      <p className="text-sm text-gray-500">{user?.email || 'wastech@gmail.com'}</p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-green-600 font-medium">Nível {userLevel}</p>
                 </div>
                 
-                <a href="/profile" className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-green-50 transition-colors">
+                <a 
+                  href="/profile" 
+                  className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-green-50 transition-colors"
+                  onClick={() => setDropdownOpen(false)}
+                >
                   <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"/>
                   </svg>
                   <span>Meu Perfil</span>
                 </a>
                 
-                <a href="#configuracoes" className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-green-50 transition-colors">
+                <a 
+                  href="#configuracoes" 
+                  className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-green-50 transition-colors"
+                  onClick={() => setDropdownOpen(false)}
+                >
                   <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd"/>
                   </svg>
                   <span>Configurações</span>
                 </a>
                 
-                <a href="#ajuda" className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-green-50 transition-colors">
+                <a 
+                  href="#ajuda" 
+                  className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-green-50 transition-colors"
+                  onClick={() => setDropdownOpen(false)}
+                >
                   <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd"/>
                   </svg>
@@ -211,16 +228,49 @@ export const Header: React.FC = () => {
 
           <div className="border-t border-gray-200 pt-4">
             <div className="flex items-center space-x-3 p-3 bg-green-50 rounded-lg">
-              <img 
-                src={user?.photoURL || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwktGunb0a4j8gZGwCIvKQiq9pf1n8bGA0QkfqzYx0jsz12RU9syffpA2SZ6svdnUovOg&usqp=CAU"} 
-                alt="Usuário" 
-                className="w-10 h-10 rounded-full border-2 border-green-200"
-              />
+              {/* ✅ AVATAR DO LOCALSTORAGE NO MOBILE */}
+              <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-white text-base font-bold border-2 border-green-200">
+                {userAvatar}
+              </div>
               <div>
                 <p className="font-semibold text-green-700">{user?.displayName || 'Usuário'}</p>
-                {/* ✅ NÍVEL DINÂMICO NO MOBILE */}
                 <p className="text-sm text-green-600">Nv. {userLevel}</p>
               </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-2 mt-3">
+              <a 
+                href="/profile" 
+                className="flex items-center space-x-3 p-3 text-gray-700 hover:bg-green-50 rounded-lg transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"/>
+                </svg>
+                <span>Meu Perfil</span>
+              </a>
+              
+              <a 
+                href="#configuracoes" 
+                className="flex items-center space-x-3 p-3 text-gray-700 hover:bg-green-50 rounded-lg transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd"/>
+                </svg>
+                <span>Configurações</span>
+              </a>
+              
+              <a 
+                href="#ajuda" 
+                className="flex items-center space-x-3 p-3 text-gray-700 hover:bg-green-50 rounded-lg transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd"/>
+                </svg>
+                <span>Ajuda & Suporte</span>
+              </a>
             </div>
 
             <button 

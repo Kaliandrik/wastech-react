@@ -15,4 +15,5 @@ export interface UserData {
   totalSavings: number;
   xp: number;
   nivel: number;
+  profilePhoto?: string; // URL da foto de perfil
 }

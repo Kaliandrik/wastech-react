@@ -328,6 +328,75 @@ export const Dashboard: React.FC = () => {
             </button>
           </div>
 
+
+{/* Calculadoras de Água - NOVA SEÇÃO */}
+<div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mt-6">
+  <div className="mb-8">
+    <h2 className="text-2xl font-bold text-gray-800 mb-3 flex items-center">
+      <div className="bg-blue-100 p-3 rounded-xl mr-4">
+        <svg className="w-7 h-7 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1z" clipRule="evenodd"/>
+        </svg>
+      </div>
+      Calculadoras de Água
+    </h2>
+    <p className="text-gray-600 text-lg">Calcule as necessidades hídricas das suas culturas</p>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {/* ETo - Evapotranspiração */}
+    <div 
+      onClick={() => navigate("/eto")}
+      className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300 cursor-pointer border border-blue-200 hover:border-blue-300 group"
+    >
+      <div className="bg-blue-500 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-md group-hover:scale-110 transition-transform duration-300">
+        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd"/>
+        </svg>
+      </div>
+      <h3 className="font-bold text-gray-800 mb-3 text-lg">ETo</h3>
+      <p className="text-gray-600 mb-4 text-sm leading-relaxed">Evapotranspiração de Referência</p>
+      <div className="bg-blue-500/10 rounded-lg py-2 px-3 inline-flex items-center justify-center">
+        <span className="text-blue-600 font-semibold text-xs">Cálculo hídrico</span>
+      </div>
+    </div>
+
+    {/* ETCc - Evapotranspiração da Cultura */}
+    <div 
+      onClick={() => navigate("/etcc")}
+      className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300 cursor-pointer border border-green-200 hover:border-green-300 group"
+    >
+      <div className="bg-green-500 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-md group-hover:scale-110 transition-transform duration-300">
+        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3z"/>
+        </svg>
+      </div>
+      <h3 className="font-bold text-gray-800 mb-3 text-lg">ETCc</h3>
+      <p className="text-gray-600 mb-4 text-sm leading-relaxed">Evapotranspiração da Cultura</p>
+      <div className="bg-green-500/10 rounded-lg py-2 px-3 inline-flex items-center justify-center">
+        <span className="text-green-600 font-semibold text-xs">Demanda da planta</span>
+      </div>
+    </div>
+
+    {/* Kc - Coeficiente da Cultura */}
+    <div 
+      onClick={() => navigate("/ko")}
+      className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300 cursor-pointer border border-purple-200 hover:border-purple-300 group"
+    >
+      <div className="bg-purple-500 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-md group-hover:scale-110 transition-transform duration-300">
+        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"/>
+        </svg>
+      </div>
+      <h3 className="font-bold text-gray-800 mb-3 text-lg">Kc</h3>
+      <p className="text-gray-600 mb-4 text-sm leading-relaxed">Coeficiente da Cultura</p>
+      <div className="bg-purple-500/10 rounded-lg py-2 px-3 inline-flex items-center justify-center">
+        <span className="text-purple-600 font-semibold text-xs">Coeficientes</span>
+      </div>
+    </div>
+  </div>
+</div>
+
           {/* Conquistas */}
           <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <div className="flex justify-between items-center mb-6">

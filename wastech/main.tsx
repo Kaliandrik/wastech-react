@@ -1,18 +1,20 @@
-// Atualize seu main.tsx para incluir as novas rotas:
-
+// wastech/main.tsx
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Dashboard } from './pages/Dashboard'
 import { Profile } from './pages/Profile'
-import ETo from './pages/Eto'; // ✅ NOVA PÁGINA
 import { Ferramentas } from './pages/Ferramentas';
 import Home from './pages/Home';
 import Login from './pages/login';
 import Cadastro from './pages/cadastro';
 import RecuperarSenha from './pages/recuperar-senha';
-import ETCC from './pages/ETCC'; // ✅ NOVA PÁGINA
-import Ko from './pages/Ko'; // ✅ NOVA PÁGINA
+
+// ✅ IMPORTE COM .tsx EXPLÍCITO
+import ETo from './pages/eto.tsx';
+import ETCC from './pages/etcc.tsx';  
+import Ko from './pages/ko.tsx';
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -26,7 +28,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/recuperar-senha" element={<RecuperarSenha />} />
         <Route path="/home" element={<Home />} />
-        {/* ✅ NOVAS ROTAS */}
+        
         <Route path="/eto" element={<ETo />} />
         <Route path="/etcc" element={<ETCC />} />
         <Route path="/ko" element={<Ko />} />

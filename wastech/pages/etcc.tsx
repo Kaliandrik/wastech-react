@@ -1,7 +1,7 @@
-// wastech/pages/ETCC/index.tsx
+// wastech/pages/etcc.tsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { culturas } from "../../data/culturas";
+import { culturas } from "../data/culturas";
 
 const ETCC: React.FC = () => {
     const [eto, setEto] = useState("");

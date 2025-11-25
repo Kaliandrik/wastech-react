@@ -1,4 +1,4 @@
-// wastech/pages/Eto/index.tsx
+// wastech/pages/eto.tsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -9,6 +9,11 @@ const ETo: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [manualMode, setManualMode] = useState(false);
+  const [temperatura, setTemperatura] = useState("");
+  const [umidade, setUmidade] = useState("");
+  const [vento, setVento] = useState("");
+  const [radiacao, setRadiacao] = useState("");
+  const [resultadoManual, setResultadoManual] = useState<number | null>(null);
 
   const handleLocation = () => {
     if (!navigator.geolocation) {
@@ -53,7 +58,6 @@ const ETo: React.FC = () => {
         return;
       }
 
-      // Cálculos
       const temps = registrosHoje.map((x: any) => x.main.temp);
       const tempMax = Math.max(...temps);
       const tempMin = Math.min(...temps);
@@ -102,13 +106,6 @@ const ETo: React.FC = () => {
     return Math.max(0, Math.min(Number(ETo), 15)).toFixed(2);
   };
 
-  // Modo manual
-  const [temperatura, setTemperatura] = useState("");
-  const [umidade, setUmidade] = useState("");
-  const [vento, setVento] = useState("");
-  const [radiacao, setRadiacao] = useState("");
-  const [resultadoManual, setResultadoManual] = useState<number | null>(null);
-
   const calcularEToManual = () => {
     if (!temperatura || !umidade || !vento || !radiacao) {
       alert("Por favor, preencha todos os campos!");
@@ -125,7 +122,6 @@ const ETo: React.FC = () => {
       return;
     }
 
-    // Fórmula simplificada de Hargreaves-Samani para ETo
     const eTo = 0.0023 * (temp + 17.8) * Math.sqrt(temp + 17.8) * rad;
     setResultadoManual(parseFloat(eTo.toFixed(2)));
     setManualMode(true);
@@ -146,7 +142,6 @@ const ETo: React.FC = () => {
       <h1 style={styles.title}>Calculadora de ETo</h1>
       <p style={styles.pageSubtitle}>Evapotranspiração de Referência</p>
       
-      {/* Botão de Geolocalização */}
       <button
         onClick={handleLocation}
         disabled={loading}
@@ -165,7 +160,6 @@ const ETo: React.FC = () => {
         </div>
       )}
 
-      {/* Resultado da Geolocalização */}
       {data && !manualMode && (
         <div style={styles.card}>
           <h2 style={{ textAlign: "center", marginBottom: "10px" }}>📍 Coordenadas</h2>
@@ -191,12 +185,10 @@ const ETo: React.FC = () => {
         </div>
       )}
 
-      {/* Separador */}
       <div style={styles.separator}>
         <span style={styles.separatorText}>OU</span>
       </div>
 
-      {/* Modo Manual */}
       <div style={styles.card}>
         <h3 style={{ textAlign: "center", marginBottom: "20px" }}>📝 Inserir Dados Manualmente</h3>
         
@@ -273,7 +265,6 @@ const ETo: React.FC = () => {
         )}
       </div>
 
-      {/* Informações */}
       <div style={styles.infoBox}>
         <h3 style={styles.infoTitle}>🌱 O que é ETo?</h3>
         <p style={styles.paragraph}>
@@ -289,7 +280,6 @@ const ETo: React.FC = () => {
         </ul>
       </div>
 
-      {/* Navegação */}
       <div style={styles.linkContainer}>
         <Link to="/dashboard">
           <button style={styles.buttonSecondary}>
@@ -307,7 +297,6 @@ const ETo: React.FC = () => {
   );
 };
 
-// Estilos
 const styles = {
     container: {
         fontFamily: "Arial, sans-serif",
@@ -366,16 +355,7 @@ const styles = {
         maxWidth: "500px",
         textAlign: "center" as "center",
         margin: "20px 0",
-        position: "relative" as "relative",
-        "&::before": {
-            content: '""',
-            position: "absolute",
-            top: "50%",
-            left: "0",
-            right: "0",
-            height: "1px",
-            background: "#d1d5db"
-        }
+        position: "relative" as "relative"
     },
     separatorText: {
         background: "#f1f8f1",

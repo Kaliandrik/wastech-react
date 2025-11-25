@@ -1,7 +1,7 @@
-// wastech/pages/Ko/index.tsx
+// wastech/pages/ko.tsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { culturas } from "../../data/culturas";
+import { culturas } from "../data/culturas";
 
 const Ko: React.FC = () => {
     return (

@@ -190,7 +190,7 @@ export const usePlants = () => {
     console.log("✏️ Editing ID:", editingId);
     
     if (isSavingPlant) {
-      console.log("❌ Já está salvando outra planta..");
+      console.log("❌ Já está salvando outra planta...");
       return;
     }
     

@@ -73,7 +73,8 @@ const ETCC: React.FC = () => {
             kc = cultura.kcValores[faseSelecionada as keyof typeof cultura.kcValores];
             culturaNome = culturaSelecionada;
             faseNome = faseSelecionada;
-            duracaoCiclo = cultura.duracao;
+            // CORREÇÃO: Garantir que duracao seja tratado como número
+            duracaoCiclo = Number(cultura.duracao);
         }
 
         // Cálculo ETc
@@ -107,7 +108,8 @@ const ETCC: React.FC = () => {
                 if (totalDias > 0) {
                     kcMedioCiclo = parseFloat((somaPonderada / totalDias).toFixed(2));
                     etcMediaPorDiaCiclo = (etoNumero * kcMedioCiclo).toFixed(2);
-                    etcTotalCiclo = (etoNumero * kcMedioCiclo * cultura.duracao).toFixed(2);
+                    // CORREÇÃO: Converter duracao para número
+                    etcTotalCiclo = (etoNumero * kcMedioCiclo * Number(cultura.duracao)).toFixed(2);
                 }
             }
         }
@@ -388,14 +390,8 @@ const ETCC: React.FC = () => {
                     </div>
 
                     {/* Divisor com OU */}
-                    <div style={styles.divider}>
-                        <div style={styles.dividerLine}></div>
-                        <span style={styles.dividerText}>OU</span>
-                        <div style={styles.dividerLine}></div>
-                    </div>
-
-                    {/* Kc Personalizado */}
-                    {renderKcPersonalizado()}
+                 
+                    
                 </div>
 
                 {/* Valores de Kc da cultura selecionada */}
@@ -481,23 +477,7 @@ const ETCC: React.FC = () => {
                     </div>
                 </div>
 
-                <div style={styles.formulaBox}>
-                    <h4 style={styles.formulaTitle}>🧮 Fórmulas Utilizadas</h4>
-                    <div style={styles.formulaGrid}>
-                        <div style={styles.formulaItem}>
-                            <div style={styles.formula}>ETc = ETo × Kc</div>
-                            <p style={styles.formulaText}>Cálculo diário para fase específica</p>
-                        </div>
-                        <div style={styles.formulaItem}>
-                            <div style={styles.formula}>ETc Média = ETo × Kc Médio</div>
-                            <p style={styles.formulaText}>Média para todo o ciclo</p>
-                        </div>
-                        <div style={styles.formulaItem}>
-                            <div style={styles.formula}>1 mm = 10 m³/ha</div>
-                            <p style={styles.formulaText}>Conversão para área</p>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
 
             {/* Navegação */}

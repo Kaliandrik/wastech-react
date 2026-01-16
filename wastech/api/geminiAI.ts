@@ -31,6 +31,29 @@ export class GeminiAIService {
   private static readonly API_KEY = 'AIzaSyB7WmY3FAKFGsDwcS88NecdNTADgdJkqeM';
   private static readonly API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
 
+
+
+
+  private static readonly PLANT_ALIASES: { [key: string]: string } = {
+    
+    'caroá': 'crauá',
+    'caroá verdadeiro': 'crauá',
+    'caroá de rede': 'crauá',
+    'crauá de rede': 'crauá',
+    'crauá verdadeiro': 'crauá',
+    'neoglaziose': 'crauá',
+    'neovlagiose': 'crauá',
+    'neoglaziovia': 'crauá',
+    'fibra de caroá': 'crauá',
+    'fibra de crauá': 'crauá',
+    'planta da fibra': 'crauá',
+    'caroazeiro': 'crauá',
+    'crauazeiro': 'crauá',
+    'caruá': 'crauá',
+    'gravata': 'crauá',
+    'gravata de rede': 'crauá',
+    'neoglaziovia variegata': 'crauá',
+  };
   // Base de dados expandida com 200+ plantas com dados reais
   private static readonly PLANT_DATABASE: { [key: string]: any } = {
     // HORTALIÇAS FOLHOSAS (Dados reais)
@@ -2295,20 +2318,36 @@ export class GeminiAIService {
   }
 
   private static validatePlant(plantName: string): { 
-    exists: boolean; 
-    scientificName?: string; 
-    difficulty?: 'Iniciante' | 'Intermediário' | 'Avançado';
-    season?: string[];
-    waterNeeds?: string;
-    sunExposure?: string;
-    soilType?: string;
-    harvestTime?: string;
-  } {
-    const normalizedName = plantName.toLowerCase().trim();
-    
-    // Verifica se a planta existe na base de dados
+  exists: boolean; 
+  scientificName?: string; 
+  difficulty?: 'Iniciante' | 'Intermediário' | 'Avançado';
+  season?: string[];
+  waterNeeds?: string;
+  sunExposure?: string;
+  soilType?: string;
+  harvestTime?: string;
+} {
+  const normalizedName = plantName.toLowerCase().trim();
+  
+  // 1. Verifica se existe nome direto na base
+  if (this.PLANT_DATABASE[normalizedName]) {
     const plantData = this.PLANT_DATABASE[normalizedName];
-    
+    return {
+      exists: true,
+      scientificName: plantData.scientific,
+      difficulty: plantData.difficulty,
+      season: plantData.season,
+      waterNeeds: plantData.water,
+      sunExposure: plantData.sun,
+      soilType: plantData.soil,
+      harvestTime: plantData.harvestTime
+    };
+  }
+  
+  // 2. VERIFICA ALIASES/SINÔNIMOS (incluindo Crauá/Caroá)
+  if (this.PLANT_ALIASES[normalizedName]) {
+    const realName = this.PLANT_ALIASES[normalizedName];
+    const plantData = this.PLANT_DATABASE[realName];
     if (plantData) {
       return {
         exists: true,
@@ -2321,33 +2360,54 @@ export class GeminiAIService {
         harvestTime: plantData.harvestTime
       };
     }
-
-    // Busca inteligente - remove acentos e busca por partes do nome
-    const cleanName = normalizedName.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    
-    for (const [key, data] of Object.entries(this.PLANT_DATABASE)) {
-      const cleanKey = key.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-      
-      // Verifica correspondência exata, parcial ou por palavra
-      if (cleanName === cleanKey || 
-          cleanName.includes(cleanKey) || 
-          cleanKey.includes(cleanName) ||
-          this.hasCommonWords(cleanName, cleanKey)) {
-        return {
-          exists: true,
-          scientificName: data.scientific,
-          difficulty: data.difficulty,
-          season: data.season,
-          waterNeeds: data.water,
-          sunExposure: data.sun,
-          soilType: data.soil,
-          harvestTime: data.harvestTime
-        };
-      }
-    }
-
-    return { exists: false };
   }
+  
+  // 3. Busca por palavras-chave relacionadas ao Crauá
+  const crauaKeywords = ['crauá', 'caroá', 'neoglazio', 'gravata', 'fibra'];
+  const isCrauaRelated = crauaKeywords.some(keyword => 
+    normalizedName.includes(keyword) || keyword.includes(normalizedName)
+  );
+  
+  if (isCrauaRelated && this.PLANT_DATABASE['crauá']) {
+    const plantData = this.PLANT_DATABASE['crauá'];
+    return {
+      exists: true,
+      scientificName: plantData.scientific,
+      difficulty: plantData.difficulty,
+      season: plantData.season,
+      waterNeeds: plantData.water,
+      sunExposure: plantData.sun,
+      soilType: plantData.soil,
+      harvestTime: plantData.harvestTime
+    };
+  }
+  
+  // 4. Busca inteligente para outras plantas
+  const cleanName = normalizedName.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  
+  for (const [key, data] of Object.entries(this.PLANT_DATABASE)) {
+    const cleanKey = key.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    
+    // Verifica correspondência exata, parcial ou por palavra
+    if (cleanName === cleanKey || 
+        cleanName.includes(cleanKey) || 
+        cleanKey.includes(cleanName) ||
+        this.hasCommonWords(cleanName, cleanKey)) {
+      return {
+        exists: true,
+        scientificName: data.scientific,
+        difficulty: data.difficulty,
+        season: data.season,
+        waterNeeds: data.water,
+        sunExposure: data.sun,
+        soilType: data.soil,
+        harvestTime: data.harvestTime
+      };
+    }
+  }
+
+  return { exists: false };
+}
 
   private static hasCommonWords(name1: string, name2: string): boolean {
     const words1 = name1.split(' ');
@@ -2611,55 +2671,85 @@ Use dados REAIS baseados em pesquisas agrícolas. Seja PRÁTICO, REALISTA e espe
     }
 
     // Análise específica para Crauá
-    if (lowerName.includes('crauá') || lowerName.includes('neoglaziovia')) {
-      return {
-        harvestTime: "2-3 anos para extração de fibras",
-        growthStages: [
-          {
-            stage: "Estabelecimento",
-            duration: "6-12 meses",
-            tips: ["🌵 Plante em solo bem drenado", "💧 Rega esparsa inicial", "☀️ Exposição total ao sol"]
-          },
-          {
-            stage: "Crescimento Vegetativo",
-            duration: "1-2 anos", 
-            tips: ["🌿 Fertilização mínima necessária", "💧 Tolerante à seca", "🛡️ Resistente natural a pragas"]
-          },
-          {
-            stage: "Maturação",
-            duration: "2-3 anos",
-            tips: ["🧵 Fibras prontas para colheita", "🌸 Pode florescer", "🌱 Produz mudas laterais"]
-          }
-        ],
-        careTips: [
-          "🌵 Planta xerófila - adaptada à seca",
-          "🪴 Solo pobre e bem drenado",
-          "☀️ Sol pleno o dia todo",
-          "💦 Rega apenas quando solo estiver seco por completo"
-        ],
-        commonIssues: [
-          "Podridão por excesso de água",
-          "Crescimento lento em solo fértil demais",
-          "Queima foliar em sombra"
-        ],
-        estimatedYield: "1-2 kg de fibras secas por planta adulta",
-        ...baseFallback,
-        waterNeeds: "Muito baixa - planta de deserto",
-        sunExposure: "Sol pleno intenso",
-        soilType: "Solo arenoso, pedregoso, pobre em matéria orgânica",
-        spacing: "1-1.5 metros entre plantas",
-        fertilization: "Quase nenhuma - excesso de nutrientes prejudica",
-        companionPlants: ["Outras cactáceas", "Suculentas", "Plantas do cerrado"],
-        pests: ["Pouco suscetível", "Cochonilhas em excesso de umidade"],
-        diseases: ["Podridão radicular por excesso de água"],  // ← CERTO (array)
-        pruning: "Remover folhas secas externas",
-        propagation: "Mudas laterais ou sementes",
-        harvestTips: ["Colher folhas externas maduras", "Secar à sombra", "Processar para extrair fibras"],
-        storage: "Fibras secas em local arejado",
-        nutritionalValue: "Não comestível - valor econômico nas fibras têxteis",
-  };
-    }
+ // Detecção MELHORADA para Crauá/Caroá
+const crauaKeywords = [
+  'crauá', 'caroá', 'neoglazio', 'neovlagio', 'gravata', 
+  'fibra', 'caruá', 'crauazeiro', 'caroazeiro'
+];
+const isCraua = crauaKeywords.some(keyword => lowerName.includes(keyword)) || 
+                plantInfo.scientificName?.includes('Neoglaziovia');
 
+if (isCraua) {
+  return {
+    harvestTime: "2-3 anos para extração de fibras",
+    growthStages: [
+      {
+        stage: "Estabelecimento",
+        duration: "6-12 meses",
+        tips: [
+          "🌵 Plante em solo bem drenado e pedregoso",
+          "💧 Rega esparsa apenas nos primeiros meses", 
+          "☀️ Exposição total ao sol é essencial",
+          "🌡️ Adaptada a climas quentes e secos"
+        ]
+      },
+      {
+        stage: "Crescimento Vegetativo",
+        duration: "1-2 anos",
+        tips: [
+          "🌿 Fertilização quase desnecessária",
+          "💧 Planta xerófila - tolera longas secas",
+          "🛡️ Resistente natural a pragas e doenças", 
+          "🌱 Crescimento lento é normal"
+        ]
+      },
+      {
+        stage: "Maturação e Produção",
+        duration: "2-3 anos",
+        tips: [
+          "🧵 Fibras atingem qualidade para colheita",
+          "🌸 Pode florescer em condições ideais",
+          "🌱 Produz mudas (filhotes) na base",
+          "✂️ Folhas externas estão prontas para colheita"
+        ]
+      }
+    ],
+    careTips: [
+      "🌵 Planta xerófila - NÃO tolera encharcamento",
+      "🪴 Solo pobre, arenoso e bem drenado é ideal", 
+      "☀️ Sol pleno intenso o dia todo obrigatório",
+      "💦 Rega apenas quando solo estiver completamente seco",
+      "🌡️ Clima tropical/quente - não tolera geadas",
+      "🧵 Cultivada principalmente para fibras têxteis"
+    ],
+    commonIssues: [
+      "Podridão radical por excesso de água (principal causa de morte)",
+      "Crescimento excessivamente lento em solo muito fértil", 
+      "Folhas queimadas em sombra parcial",
+      "Suscetível a cochonilhas em condições de umidade excessiva"
+    ],
+    estimatedYield: "1-2 kg de fibras secas por planta adulta (3-5 anos)",
+    ...baseFallback,
+    waterNeeds: "Muito baixa - planta de deserto/cerrado",
+    sunExposure: "Sol pleno intenso (mínimo 8 horas/dia)",
+    soilType: "Solo arenoso, pedregoso, pobre em matéria orgânica, excelente drenagem",
+    spacing: "1-1.5 metros entre plantas",
+    fertilization: "Quase nenhuma necessária - excesso de nutrientes prejudica o crescimento",
+    companionPlants: ["Mandacaru", "Xique-xique", "Outras cactáceas", "Plantas do cerrado"],
+    pests: ["Pouco suscetível", "Cochonilhas em condições de excesso de umidade"],
+    diseases: ["Podridão radicular por excesso de água"],
+    pruning: "Remover folhas secas externas quando necessário",
+    propagation: "Mudas (filhotes) que nascem na base ou sementes",
+    harvestTips: [
+      "Colher apenas folhas externas maduras (mais de 2 anos)",
+      "Cortar na base com faca afiada",
+      "Processar para extrair fibras: maceração e secagem",
+      "Fibras mais longas têm maior valor comercial"
+    ],
+    storage: "Fibras secas em local arejado e protegido da umidade",
+    nutritionalValue: "Não comestível - valor econômico nas fibras têxteis"
+  };
+}
     // Análise genérica para plantas conhecidas
     if (plantInfo.exists) {
       return {

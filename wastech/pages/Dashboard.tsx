@@ -551,35 +551,35 @@ export const Dashboard: React.FC = () => {
             </button>
           </div>
 
-          {/* Mostrar apenas as 3 primeiras plantas */}
+          {/* Mostrar apenas as 3 primeiras plantas - AGORA COM A NOVA PROP */}
           <PlantsList
             plants={plants.slice(0, 3)}
             onEditPlant={handleEditPlant}
             onRemovePlant={removePlant}
+            showAll={false} // ✅ EXPLICITAMENTE FALANDO QUE NÃO É SHOW ALL
           />
 
-          {/* Botão Ver Todas as Plantas - aparece apenas se tiver mais de 3 plantas */}
-          {plants.length > 3 && (
-            <button 
-              onClick={handleShowAllPlants}
-              className="w-full border border-green-500 text-green-500 hover:bg-green-50 py-3 rounded-lg font-semibold transition flex items-center justify-center mt-4"
-            >
-              Ver Todas as Plantas
-              <svg className="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"/>
-              </svg>
-            </button>
-          )}
+         {/* Botão Ver Todas as Plantas - aparece apenas se tiver mais de 2 plantas */}
+{plants.length > 2 && (
+  <button 
+    onClick={handleShowAllPlants}
+    className="w-full border border-green-500 text-green-500 hover:bg-green-50 py-3 rounded-lg font-semibold transition flex items-center justify-center mt-4"
+  >
+    Ver Todas as Plantas
+    <svg className="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20">
+      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"/>
+    </svg>
+  </button>
+)}
 
-          {/* Contador de plantas */}
-          <div className="mt-3 text-center text-sm text-gray-500">
-            {plants.length > 3 ? (
-              <span>Mostrando 3 de {plants.length} plantas</span>
-            ) : (
-              <span>{plants.length} planta{plants.length !== 1 ? 's' : ''} no total</span>
-            )}
-          </div>
-
+{/* Contador de plantas - ATUALIZADO PARA REFLETIR 2 PLANTAS VISÍVEIS */}
+<div className="mt-3 text-center text-sm text-gray-500">
+  {plants.length > 2 ? (
+    <span>Mostrando 2 de {plants.length} plantas</span>
+  ) : (
+    <span>{plants.length} planta{plants.length !== 1 ? 's' : ''} no total</span>
+  )}
+</div>
           <button 
             onClick={handleAddPlant}
             className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition flex items-center justify-center mt-4"
@@ -592,7 +592,7 @@ export const Dashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal para mostrar todas as plantas */}
+      {/* Modal para mostrar todas as plantas - COM A CORREÇÃO IMPORTANTE */}
       {showAllPlants && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden">
@@ -614,7 +614,7 @@ export const Dashboard: React.FC = () => {
               </button>
             </div>
 
-            {/* Conteúdo do Modal */}
+            {/* Conteúdo do Modal - AGORA PASSA SHOWALL={TRUE} */}
             <div className="p-6 max-h-[calc(90vh-120px)] overflow-y-auto">
               <PlantsList
                 plants={plants}
@@ -623,6 +623,7 @@ export const Dashboard: React.FC = () => {
                   handleCloseAllPlants();
                 }}
                 onRemovePlant={removePlant}
+                showAll={true} // ✅ CORREÇÃO IMPORTANTE: mostra TODAS as plantas
               />
             </div>
 

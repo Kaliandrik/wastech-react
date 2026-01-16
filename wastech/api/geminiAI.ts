@@ -487,14 +487,7 @@ export class GeminiAIService {
       water: 'Moderada',
       sun: 'Sol pleno'
     },
-    'gengibre': {
-      scientific: 'Zingiber officinale',
-      difficulty: 'Intermediário',
-      season: ['Primavera', 'Verão'],
-      harvestTime: '8-10 meses',
-      water: 'Alta',
-      sun: 'Meia-sombra'
-    },
+    
     'hibisco': {
       scientific: 'Hibiscus sabdariffa',
       difficulty: 'Intermediário',
@@ -606,7 +599,1666 @@ export class GeminiAIService {
       harvestTime: '8-10 meses',
       water: 'Alta',
       sun: 'Meia-sombra'
+    },
+
+    // PLANTAS DO CERRADO E NATIVAS BRASILEIRAS
+    'crauá': {
+      scientific: 'Neoglaziovia variegata',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '2-3 anos para fibras, 5-7 anos para pleno desenvolvimento',
+      water: 'Baixa - resistente à seca',
+      sun: 'Sol pleno',
+      soil: 'Solo bem drenado, pedregoso, pobre em nutrientes',
+      spacing: '1-1.5m entre plantas'
+    },
+    'neoglaziovia variegata': {
+      scientific: 'Neoglaziovia variegata',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '2-3 anos',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'mandacaru': {
+      scientific: 'Cereus jamacaru',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '2-3 anos para floração',
+      water: 'Muito baixa',
+      sun: 'Sol pleno'
+    },
+    'pequi': {
+      scientific: 'Caryocar brasiliense',
+      difficulty: 'Avançado',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '8-10 anos para produção',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'buriti': {
+      scientific: 'Mauritia flexuosa',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '8-12 anos',
+      water: 'Alta',
+      sun: 'Sol pleno'
+    },
+    'açaí': {
+      scientific: 'Euterpe oleracea',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '3-4 anos',
+      water: 'Alta',
+      sun: 'Meia-sombra a sol pleno'
+    },
+    'juçara': {
+      scientific: 'Euterpe edulis',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '5-7 anos',
+      water: 'Alta',
+      sun: 'Sombra parcial'
+    },
+    'jatobá': {
+      scientific: 'Hymenaea courbaril',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '10-15 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+
+    // PLANTAS FIBROSAS E TÊXTEIS
+    'sisal': {
+      scientific: 'Agave sisalana',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '3-4 anos para primeira colheita',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'algodão': {
+      scientific: 'Gossypium hirsutum',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '150-180 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'linho': {
+      scientific: 'Linum usitatissimum',
+      difficulty: 'Intermediário',
+      season: ['Inverno', 'Primavera'],
+      harvestTime: '100-120 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'ramie': {
+      scientific: 'Boehmeria nivea',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '60-90 dias por corte',
+      water: 'Alta',
+      sun: 'Sol pleno'
+    },
+
+    // PLANTAS ORNAMENTAIS ESPECIAIS
+    'antúrio': {
+      scientific: 'Anthurium andraeanum',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '1-2 anos para floração',
+      water: 'Moderada',
+      sun: 'Sombra parcial'
+    },
+    'costela de adão': {
+      scientific: 'Monstera deliciosa',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '2-3 anos para frutificação',
+      water: 'Moderada',
+      sun: 'Sombra parcial'
+    },
+    'lírio da paz': {
+      scientific: 'Spathiphyllum wallisii',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '1 ano para floração',
+      water: 'Alta',
+      sun: 'Sombra'
+    },
+    'samambaia': {
+      scientific: 'Nephrolepis exaltata',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '6-12 meses para pleno desenvolvimento',
+      water: 'Alta',
+      sun: 'Sombra'
+    },
+    'palmeira rabo de peixe': {
+      scientific: 'Caryota mitis',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '3-5 anos',
+      water: 'Moderada',
+      sun: 'Meia-sombra'
+    },
+
+    // PLANTAS CARNÍVORAS BRASILEIRAS
+    'drosera': {
+      scientific: 'Drosera spp',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '1-2 anos para maturidade',
+      water: 'Alta - solo sempre úmido',
+      sun: 'Sol pleno a meia-sombra'
+    },
+    'nepenthes': {
+      scientific: 'Nepenthes spp',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '2-3 anos para jarros',
+      water: 'Alta umidade do ar',
+      sun: 'Meia-sombra'
+    },
+    'sarracenia': {
+      scientific: 'Sarracenia spp',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '2-3 anos',
+      water: 'Muita água no prato',
+      sun: 'Sol pleno'
+    },
+
+    // PLANTAS AQUÁTICAS E PALUSTRES
+    'vitória régia': {
+      scientific: 'Victoria amazonica',
+      difficulty: 'Avançado',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '2-3 anos',
+      water: 'Aquática',
+      sun: 'Sol pleno'
+    },
+    'aguapé': {
+      scientific: 'Eichhornia crassipes',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '30-60 dias para cobertura',
+      water: 'Aquática',
+      sun: 'Sol pleno a meia-sombra'
+    },
+    'taboa': {
+      scientific: 'Typha domingensis',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '1 ano',
+      water: 'Pantanal/margens',
+      sun: 'Sol pleno'
+    },
+
+    // PLANTAS DE SOMBRA ESPECIALIZADAS
+    'filodendro': {
+      scientific: 'Philodendron spp',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '1-2 anos',
+      water: 'Moderada',
+      sun: 'Sombra'
+    },
+    'cacto de natal': {
+      scientific: 'Schlumbergera truncata',
+      difficulty: 'Intermediário',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '1-2 anos para floração',
+      water: 'Moderada',
+      sun: 'Luz indireta'
+    },
+    'bromélia': {
+      scientific: 'Bromeliaceae',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '1-3 anos para floração',
+      water: 'Moderada - no copo central',
+      sun: 'Meia-sombra'
+    },
+
+    // PLANTAS AROMÁTICAS ESPECIAIS
+    'patchouli': {
+      scientific: 'Pogostemon cablin',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '6-8 meses',
+      water: 'Alta',
+      sun: 'Meia-sombra'
+    },
+    'ylang ylang': {
+      scientific: 'Cananga odorata',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '2-3 anos para floração',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'vetiver': {
+      scientific: 'Chrysopogon zizanioides',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '12-18 meses',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+
+    // PLANTAS DE CLIMA DESÉRTICO
+    'cacto saguaro': {
+      scientific: 'Carnegiea gigantea',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '10-15 anos para floração',
+      water: 'Muito baixa',
+      sun: 'Sol pleno'
+    },
+    'rosa do deserto': {
+      scientific: 'Adenium obesum',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '2-3 anos para floração',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'agave': {
+      scientific: 'Agave americana',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '8-10 anos',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+
+    // PLANTAS TREPADEIRAS ESPECIAIS
+    'maracujá do mato': {
+      scientific: 'Passiflora caerulea',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '1-2 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'jiboia': {
+      scientific: 'Epipremnum pinnatum',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '1-2 anos',
+      water: 'Moderada',
+      sun: 'Sombra a meia-sombra'
+    },
+    'hera': {
+      scientific: 'Hedera helix',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '1-2 anos',
+      water: 'Moderada',
+      sun: 'Sombra'
+    },
+
+    // PLANTAS DE INTERIOR RESISTENTES
+    'zamioculca': {
+      scientific: 'Zamioculcas zamiifolia',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '1-2 anos',
+      water: 'Baixa',
+      sun: 'Sombra a meia-sombra'
+    },
+    'espada de são jorge': {
+      scientific: 'Sansevieria trifasciata',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '1-2 anos',
+      water: 'Baixa',
+      sun: 'Sombra a sol pleno'
+    },
+    'clorofito': {
+      scientific: 'Chlorophytum comosum',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '6-12 meses',
+      water: 'Moderada',
+      sun: 'Meia-sombra'
+    },
+
+    // PLANTAS PARA BONSAI
+    'ficus bonsai': {
+      scientific: 'Ficus retusa',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '3-5 anos para forma',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'azaleia bonsai': {
+      scientific: 'Rhododendron spp',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '2-4 anos',
+      water: 'Alta',
+      sun: 'Meia-sombra'
+    },
+    'junipero bonsai': {
+      scientific: 'Juniperus spp',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '5-10 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+
+    // PLANTAS COMESTÍVEIS EXÓTICAS
+    'fisális': {
+      scientific: 'Physalis peruviana',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '120-150 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'jabuticaba': {
+      scientific: 'Plinia cauliflora',
+      difficulty: 'Intermediário',
+      season: ['Primavera'],
+      harvestTime: '8-15 anos',
+      water: 'Moderada a alta',
+      sun: 'Sol pleno'
+    },
+    'pitanga': {
+      scientific: 'Eugenia uniflora',
+      difficulty: 'Intermediário',
+      season: ['Verão'],
+      harvestTime: '3-4 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'cajá': {
+      scientific: 'Spondias mombin',
+      difficulty: 'Intermediário',
+      season: ['Verão'],
+      harvestTime: '4-5 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+
+    // PLANTAS TINTORIAIS
+  
+    'indigofera': {
+      scientific: 'Indigofera tinctoria',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '1 ano',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'curcuma': {
+      scientific: 'Curcuma longa',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '8-10 meses',
+      water: 'Alta',
+      sun: 'Meia-sombra'
+    },
+
+    // PLANTAS PARA CHÁ E INFUSÕES
+    'capim santo': {
+      scientific: 'Cymbopogon citratus',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '90-120 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'erva cidreira': {
+      scientific: 'Melissa officinalis',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '60-90 dias',
+      water: 'Moderada',
+      sun: 'Meia-sombra'
+    },
+    'guaco': {
+      scientific: 'Mikania glomerata',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '1 ano',
+      water: 'Moderada',
+      sun: 'Meia-sombra'
+    },
+
+        // CEREAIS E GRÃOS (ESSENCIAIS)
+    'milho': {
+      scientific: 'Zea mays',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '80-120 dias',
+      water: 'Moderada a alta',
+      sun: 'Sol pleno'
+    },
+    'milho verde': {
+      scientific: 'Zea mays',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '70-90 dias',
+      water: 'Alta',
+      sun: 'Sol pleno'
+    },
+    'arroz': {
+      scientific: 'Oryza sativa',
+      difficulty: 'Avançado',
+      season: ['Verão'],
+      harvestTime: '120-150 dias',
+      water: 'Muito alta - plantio alagado',
+      sun: 'Sol pleno'
+    },
+    'aveia': {
+      scientific: 'Avena sativa',
+      difficulty: 'Iniciante',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '90-120 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'centeio': {
+      scientific: 'Secale cereale',
+      difficulty: 'Intermediário',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '110-130 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'milheto': {
+      scientific: 'Pennisetum glaucum',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '60-90 dias',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'sorgo': {
+      scientific: 'Sorghum bicolor',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '90-120 dias',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+
+    // LEGUMINOSAS DE GRÃO
+    'feijão carioca': {
+      scientific: 'Phaseolus vulgaris',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '70-90 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'feijão preto': {
+      scientific: 'Phaseolus vulgaris',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '75-95 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'feijão de corda': {
+      scientific: 'Vigna unguiculata',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '60-80 dias',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'feijão fradinho': {
+      scientific: 'Vigna unguiculata',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '65-85 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'grão de bico': {
+      scientific: 'Cicer arietinum',
+      difficulty: 'Intermediário',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '100-120 dias',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'lentilha': {
+      scientific: 'Lens culinaris',
+      difficulty: 'Intermediário',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '110-130 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'soja': {
+      scientific: 'Glycine max',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '90-120 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'amendoim': {
+      scientific: 'Arachis hypogaea',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '100-130 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+
+    // HORTALIÇAS DE FRUTO ADICIONAIS
+    'chuchu': {
+      scientific: 'Sechium edule',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '90-120 dias',
+      water: 'Alta',
+      sun: 'Sol pleno a meia-sombra'
+    },
+    'maxixe': {
+      scientific: 'Cucumis anguria',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '50-70 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'quiabo': {
+      scientific: 'Abelmoschus esculentus',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '60-80 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'jiló': {
+      scientific: 'Solanum aethiopicum',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '80-100 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'pimenta': {
+      scientific: 'Capsicum spp',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '70-90 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'pimenta malagueta': {
+      scientific: 'Capsicum frutescens',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '80-100 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'pimenta dedo de moça': {
+      scientific: 'Capsicum baccatum',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '75-95 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'melancia': {
+      scientific: 'Citrullus lanatus',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '80-100 dias',
+      water: 'Alta',
+      sun: 'Sol pleno'
+    },
+    'melão': {
+      scientific: 'Cucumis melo',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '75-95 dias',
+      water: 'Alta',
+      sun: 'Sol pleno'
+    },
+    'moranga': {
+      scientific: 'Cucurbita maxima',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '90-120 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'abóbora': {
+      scientific: 'Cucurbita moschata',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '85-110 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+
+    // HORTALIÇAS FOLHOSAS ADICIONAIS
+    'agrião': {
+      scientific: 'Nasturtium officinale',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '40-60 dias',
+      water: 'Muita água',
+      sun: 'Meia-sombra'
+    },
+    'almeirão': {
+      scientific: 'Cichorium intybus',
+      difficulty: 'Iniciante',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '60-80 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'catalônia': {
+      scientific: 'Chicorium endivia',
+      difficulty: 'Iniciante',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '50-70 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'chicória': {
+      scientific: 'Cichorium endivia',
+      difficulty: 'Iniciante',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '55-75 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'coentro': {
+      scientific: 'Coriandrum sativum',
+      difficulty: 'Iniciante',
+      season: ['Outono', 'Inverno', 'Primavera'],
+      harvestTime: '40-60 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno a meia-sombra'
+    },
+    'endívia': {
+      scientific: 'Cichorium endivia',
+      difficulty: 'Intermediário',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '70-90 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'mostarda': {
+      scientific: 'Brassica juncea',
+      difficulty: 'Iniciante',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '40-50 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'rúcula selvagem': {
+      scientific: 'Diplotaxis tenuifolia',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '30-45 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+
+    // RAÍZES E BULBOS ADICIONAIS
+    'cebola': {
+      scientific: 'Allium cepa',
+      difficulty: 'Intermediário',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '100-150 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'alho': {
+      scientific: 'Allium sativum',
+      difficulty: 'Intermediário',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '120-180 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'cebolinha': {
+      scientific: 'Allium fistulosum',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '60-90 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'alho poró': {
+      scientific: 'Allium ampeloprasum var. porrum',
+      difficulty: 'Intermediário',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '120-150 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'gengibre': {
+      scientific: 'Zingiber officinale',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '8-10 meses',
+      water: 'Alta',
+      sun: 'Meia-sombra'
+    },
+    'inhame': {
+      scientific: 'Dioscorea spp',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '6-8 meses',
+      water: 'Moderada',
+      sun: 'Sol pleno a meia-sombra'
+    },
+    'cará': {
+      scientific: 'Dioscorea spp',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '7-9 meses',
+      water: 'Moderada',
+      sun: 'Meia-sombra'
+    },
+    'mandioca': {
+      scientific: 'Manihot esculenta',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '10-14 meses',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'mandioquinha salsa': {
+      scientific: 'Arracacia xanthorrhiza',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '10-12 meses',
+      water: 'Moderada',
+      sun: 'Meia-sombra'
+    },
+
+    // FRUTAS ADICIONAIS BRASILEIRAS
+    'caju': {
+      scientific: 'Anacardium occidentale',
+      difficulty: 'Intermediário',
+      season: ['Verão'],
+      harvestTime: '3-4 anos',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'cajá manga': {
+      scientific: 'Spondias dulcis',
+      difficulty: 'Intermediário',
+      season: ['Verão'],
+      harvestTime: '3-4 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'carambola': {
+      scientific: 'Averrhoa carambola',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '2-3 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'cereja do rio grande': {
+      scientific: 'Eugenia involucrata',
+      difficulty: 'Intermediário',
+      season: ['Primavera'],
+      harvestTime: '3-4 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'figo': {
+      scientific: 'Ficus carica',
+      difficulty: 'Intermediário',
+      season: ['Verão'],
+      harvestTime: '2-3 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'framboesa': {
+      scientific: 'Rubus idaeus',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '1-2 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'fruta do conde': {
+      scientific: 'Annona squamosa',
+      difficulty: 'Intermediário',
+      season: ['Verão'],
+      harvestTime: '2-3 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'graviola': {
+      scientific: 'Annona muricata',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '2-3 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'jaca': {
+      scientific: 'Artocarpus heterophyllus',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '4-6 anos',
+      water: 'Alta',
+      sun: 'Sol pleno'
+    },
+    'jenipapo': {
+      scientific: 'Genipa americana',
+      difficulty: 'Intermediário',
+      season: ['Verão'],
+      harvestTime: '3-4 anos',
+      water: 'Alta',
+      sun: 'Sol pleno'
+    },
+    'lixia': {
+      scientific: 'Nephelium lappaceum',
+      difficulty: 'Avançado',
+      season: ['Verão'],
+      harvestTime: '4-5 anos',
+      water: 'Alta',
+      sun: 'Sol pleno'
+    },
+    'seriguela': {
+      scientific: 'Spondias purpurea',
+      difficulty: 'Intermediário',
+      season: ['Verão'],
+      harvestTime: '2-3 anos',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'tamarindo': {
+      scientific: 'Tamarindus indica',
+      difficulty: 'Avançado',
+      season: ['Verão'],
+      harvestTime: '6-8 anos',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'umbu': {
+      scientific: 'Spondias tuberosa',
+      difficulty: 'Intermediário',
+      season: ['Verão'],
+      harvestTime: '3-4 anos',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+
+    // ERVAS E CONDIMENTOS ADICIONAIS
+    'cebolinho': {
+      scientific: 'Allium schoenoprasum',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '60-80 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+  
+    'estragão': {
+      scientific: 'Artemisia dracunculus',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '80-100 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+   
+    'louro': {
+      scientific: 'Laurus nobilis',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '2-3 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno a meia-sombra'
+    },
+    'manjerona': {
+      scientific: 'Origanum majorana',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '60-80 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'pimenta da jamaica': {
+      scientific: 'Pimenta dioica',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '3-5 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'segurelha': {
+      scientific: 'Satureja hortensis',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '70-90 dias',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'tomilho': {
+      scientific: 'Thymus vulgaris',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '80-100 dias',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+
+    // PLANTAS MEDICINAIS ADICIONAIS
+    'alcachofra': {
+      scientific: 'Cynara scolymus',
+      difficulty: 'Intermediário',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '150-180 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'alecrim do campo': {
+      scientific: 'Baccharis dracunculifolia',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '1 ano',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'arnica': {
+      scientific: 'Arnica montana',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '1-2 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'babosa': {
+      scientific: 'Aloe vera',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '1-2 anos',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'calêndula': {
+      scientific: 'Calendula officinalis',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '60-90 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'carqueja': {
+      scientific: 'Baccharis trimera',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '1 ano',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'cavalinha': {
+      scientific: 'Equisetum arvense',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '1 ano',
+      water: 'Alta',
+      sun: 'Meia-sombra'
+    },
+    'confrei': {
+      scientific: 'Symphytum officinale',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '60-90 dias',
+      water: 'Alta',
+      sun: 'Meia-sombra'
+    },
+    'erva doce': {
+      scientific: 'Pimpinella anisum',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '100-120 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'erva mate': {
+      scientific: 'Ilex paraguariensis',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '3-4 anos',
+      water: 'Alta',
+      sun: 'Meia-sombra'
+    },
+    'hortelã pimenta': {
+      scientific: 'Mentha × piperita',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '60-90 dias',
+      water: 'Alta',
+      sun: 'Meia-sombra'
+    },
+    'malva': {
+      scientific: 'Malva sylvestris',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '60-80 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'marcela': {
+      scientific: 'Achyrocline satureioides',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '1 ano',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'picão preto': {
+      scientific: 'Bidens pilosa',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '60-90 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'tanchagem': {
+      scientific: 'Plantago major',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '60-80 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'tansagem': {
+      scientific: 'Plantago lanceolata',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '60-80 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'valeriana': {
+      scientific: 'Valeriana officinalis',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '2-3 anos',
+      water: 'Alta',
+      sun: 'Meia-sombra'
+    },
+
+    // PLANTAS FORRAGEIRAS
+    'alfafa': {
+      scientific: 'Medicago sativa',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '60-70 dias por corte',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'capim elefante': {
+      scientific: 'Pennisetum purpureum',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '60-90 dias por corte',
+      water: 'Alta',
+      sun: 'Sol pleno'
+    },
+    'capim gordura': {
+      scientific: 'Melinis minutiflora',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '70-90 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'capim jaraguá': {
+      scientific: 'Hyparrhenia rufa',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '80-100 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+
+    // PLANTAS ORNAMENTAIS COMUNS
+    'amarílis': {
+      scientific: 'Hippeastrum spp',
+      difficulty: 'Iniciante',
+      season: ['Primavera'],
+      harvestTime: '2-3 anos para floração',
+      water: 'Moderada',
+      sun: 'Sol pleno a meia-sombra'
+    },
+    'azaleia': {
+      scientific: 'Rhododendron simsii',
+      difficulty: 'Intermediário',
+      season: ['Inverno', 'Primavera'],
+      harvestTime: '1-2 anos para floração',
+      water: 'Moderada',
+      sun: 'Meia-sombra'
+    },
+    'begônia': {
+      scientific: 'Begonia spp',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '4-6 meses para floração',
+      water: 'Moderada',
+      sun: 'Meia-sombra'
+    },
+    'crisântemo': {
+      scientific: 'Chrysanthemum morifolium',
+      difficulty: 'Intermediário',
+      season: ['Outono'],
+      harvestTime: '4-5 meses para floração',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'dália': {
+      scientific: 'Dahlia spp',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '3-4 meses para floração',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'gardênia': {
+      scientific: 'Gardenia jasminoides',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '2-3 anos para floração',
+      water: 'Alta',
+      sun: 'Meia-sombra'
+    },
+    'gerânio': {
+      scientific: 'Pelargonium spp',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '3-4 meses para floração',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'gérbera': {
+      scientific: 'Gerbera jamesonii',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '4-6 meses para floração',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'hortênsia': {
+      scientific: 'Hydrangea macrophylla',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '1-2 anos para floração',
+      water: 'Alta',
+      sun: 'Meia-sombra'
+    },
+    'petúnia': {
+      scientific: 'Petunia spp',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '2-3 meses para floração',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'primavera': {
+      scientific: 'Bougainvillea spp',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '1-2 anos para floração',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'tulipa': {
+      scientific: 'Tulipa spp',
+      difficulty: 'Avançado',
+      season: ['Inverno', 'Primavera'],
+      harvestTime: '6-8 meses para floração',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'violeta': {
+      scientific: 'Viola spp',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '3-4 meses para floração',
+      water: 'Moderada',
+      sun: 'Meia-sombra'
+    },
+
+    // PLANTAS DE COBERTURA E ADUBAÇÃO VERDE
+    'crotalária': {
+      scientific: 'Crotalaria juncea',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '60-90 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'feijão guandu': {
+      scientific: 'Cajanus cajan',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '90-120 dias',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'mucuna preta': {
+      scientific: 'Mucuna pruriens',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '90-120 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'lab lab': {
+      scientific: 'Lablab purpureus',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '70-100 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+
+        // FRUTAS RARAS MAS CULTIVADAS
+    'bacuri': {
+      scientific: 'Platonia insignis',
+      difficulty: 'Avançado',
+      season: ['Verão'],
+      harvestTime: '8-10 anos',
+      water: 'Alta',
+      sun: 'Sol pleno'
+    },
+
+    
+    'camu camu': {
+      scientific: 'Myrciaria dubia',
+      difficulty: 'Avançado',
+      season: ['Verão'],
+      harvestTime: '3-4 anos',
+      water: 'Alta',
+      sun: 'Sol pleno'
+    },
+    'cupuaçu': {
+      scientific: 'Theobroma grandiflorum',
+      difficulty: 'Avançado',
+      season: ['Verão'],
+      harvestTime: '3-4 anos',
+      water: 'Alta',
+      sun: 'Sombra'
+    },
+
+    // HORTALIÇAS DE CLIMA FRIO (SUL)
+    'acelga': {
+      scientific: 'Beta vulgaris var. cicla',
+      difficulty: 'Iniciante',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '55-65 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'alho nobre': {
+      scientific: 'Allium sativum var. ophioscorodon',
+      difficulty: 'Intermediário',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '120-180 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'cebola perene': {
+      scientific: 'Allium fistulosum',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '90-120 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'couve de bruxelas': {
+      scientific: 'Brassica oleracea var. gemmifera',
+      difficulty: 'Avançado',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '90-120 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'kale': {
+      scientific: 'Brassica oleracea var. acephala',
+      difficulty: 'Iniciante',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '55-75 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'nabo': {
+      scientific: 'Brassica rapa subsp. rapa',
+      difficulty: 'Iniciante',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '40-60 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+
+    // LEGUMINOSAS RARAS
+    'ervilha amarela': {
+      scientific: 'Pisum sativum var. arvense',
+      difficulty: 'Iniciante',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '60-80 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'feijão moyashi': {
+      scientific: 'Vigna radiata',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '45-60 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'tremoço': {
+      scientific: 'Lupinus albus',
+      difficulty: 'Intermediário',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '120-150 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+
+    // CEREAIS ALTERNATIVOS
+    'amaranto': {
+      scientific: 'Amaranthus cruentus',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '90-120 dias',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'cevada cervejeira': {
+      scientific: 'Hordeum vulgare',
+      difficulty: 'Intermediário',
+      season: ['Inverno'],
+      harvestTime: '90-120 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'quinoa': {
+      scientific: 'Chenopodium quinoa',
+      difficulty: 'Intermediário',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '90-150 dias',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'teff': {
+      scientific: 'Eragrostis tef',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '90-120 dias',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+
+    // TUBÉRCULOS E RAIZES RAROS
+    'araruta': {
+      scientific: 'Maranta arundinacea',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '10-12 meses',
+      water: 'Alta',
+      sun: 'Meia-sombra'
+    },
+    'inhame cará': {
+      scientific: 'Dioscorea alata',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '8-10 meses',
+      water: 'Moderada',
+      sun: 'Meia-sombra'
+    },
+    'mandioca brava': {
+      scientific: 'Manihot esculenta',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '10-14 meses',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'taro': {
+      scientific: 'Colocasia esculenta',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '6-8 meses',
+      water: 'Alta',
+      sun: 'Meia-sombra'
+    },
+
+    // PLANTAS CONDIMENTARES
+    'anis estrelado': {
+      scientific: 'Illicium verum',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '6-8 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'cardamomo': {
+      scientific: 'Elettaria cardamomum',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '3-4 anos',
+      water: 'Alta',
+      sun: 'Sombra'
+    },
+    'cúrcuma': {
+      scientific: 'Curcuma longa',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '8-10 meses',
+      water: 'Alta',
+      sun: 'Meia-sombra'
+    },
+    'gengibre havaiano': {
+      scientific: 'Zingiber zerumbet',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '8-10 meses',
+      water: 'Alta',
+      sun: 'Meia-sombra'
+    },
+    'mostarda preta': {
+      scientific: 'Brassica nigra',
+      difficulty: 'Iniciante',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '80-100 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+
+    // PLANTAS MEDICINAIS DA AMAZÔNIA
+    'andiroba': {
+      scientific: 'Carapa guianensis',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '10-15 anos',
+      water: 'Alta',
+      sun: 'Sol pleno'
+    },
+    'copaíba': {
+      scientific: 'Copaifera langsdorffii',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '20-30 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'muirapuama': {
+      scientific: 'Ptychopetalum olacoides',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '5-7 anos',
+      water: 'Moderada',
+      sun: 'Meia-sombra'
+    },
+    'sucupira': {
+      scientific: 'Pterodon emarginatus',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '10-15 anos',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+
+    // PLANTAS FIBROSAS
+    'curauá': {
+      scientific: 'Ananas lucidus',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '2-3 anos',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+   
+    'piaçava': {
+      scientific: 'Attalea funifera',
+      difficulty: 'Avançado',
+      season: ['Ano Todo'],
+      harvestTime: '8-10 anos',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+
+    // PLANTAS ORNAMENTAIS COMESTÍVEIS
+    'amor perfeito': {
+      scientific: 'Viola tricolor',
+      difficulty: 'Iniciante',
+      season: ['Outono', 'Inverno'],
+      harvestTime: '70-90 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno a meia-sombra'
+    },
+    'borragem': {
+      scientific: 'Borago officinalis',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '60-80 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'calêndula comestível': {
+      scientific: 'Calendula officinalis',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '60-90 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'flor de abobrinha': {
+      scientific: 'Cucurbita pepo',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '45-60 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'nastúrcio': {
+      scientific: 'Tropaeolum majus',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '40-60 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno a meia-sombra'
+    },
+
+    // PLANTAS INSETICIDAS/NEMATICIDAS
+    'cravinho': {
+      scientific: 'Tagetes minuta',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '90-120 dias',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'nim': {
+      scientific: 'Azadirachta indica',
+      difficulty: 'Intermediário',
+      season: ['Ano Todo'],
+      harvestTime: '3-5 anos',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'piretro': {
+      scientific: 'Tanacetum cinerariifolium',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '90-120 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+
+    // CACTOS E SUCULENTAS COMESTÍVEIS
+    'figo da índia': {
+      scientific: 'Opuntia ficus-indica',
+      difficulty: 'Iniciante',
+      season: ['Verão'],
+      harvestTime: '2-3 anos',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'pitaia vermelha': {
+      scientific: 'Hylocereus costaricensis',
+      difficulty: 'Intermediário',
+      season: ['Verão'],
+      harvestTime: '1-2 anos',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'rabo de rato': {
+      scientific: 'Cereus hildmannianus',
+      difficulty: 'Iniciante',
+      season: ['Ano Todo'],
+      harvestTime: '2-3 anos',
+      water: 'Muito baixa',
+      sun: 'Sol pleno'
+    },
+
+    // PLANTAS PARA POLINIZADORES
+    'alfazema': {
+      scientific: 'Lavandula angustifolia',
+      difficulty: 'Intermediário',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '1-2 anos',
+      water: 'Baixa',
+      sun: 'Sol pleno'
+    },
+    'erva de são joão': {
+      scientific: 'Hypericum perforatum',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '90-120 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
+    },
+    'margarida': {
+      scientific: 'Leucanthemum vulgare',
+      difficulty: 'Iniciante',
+      season: ['Primavera', 'Verão'],
+      harvestTime: '70-90 dias',
+      water: 'Moderada',
+      sun: 'Sol pleno'
     }
+
   };
 
   public static async analyzePlant(plantName: string, plantType: string, plantingDate: string): Promise<PlantAnalysis> {
@@ -958,6 +2610,56 @@ Use dados REAIS baseados em pesquisas agrícolas. Seja PRÁTICO, REALISTA e espe
       };
     }
 
+    // Análise específica para Crauá
+    if (lowerName.includes('crauá') || lowerName.includes('neoglaziovia')) {
+      return {
+        harvestTime: "2-3 anos para extração de fibras",
+        growthStages: [
+          {
+            stage: "Estabelecimento",
+            duration: "6-12 meses",
+            tips: ["🌵 Plante em solo bem drenado", "💧 Rega esparsa inicial", "☀️ Exposição total ao sol"]
+          },
+          {
+            stage: "Crescimento Vegetativo",
+            duration: "1-2 anos", 
+            tips: ["🌿 Fertilização mínima necessária", "💧 Tolerante à seca", "🛡️ Resistente natural a pragas"]
+          },
+          {
+            stage: "Maturação",
+            duration: "2-3 anos",
+            tips: ["🧵 Fibras prontas para colheita", "🌸 Pode florescer", "🌱 Produz mudas laterais"]
+          }
+        ],
+        careTips: [
+          "🌵 Planta xerófila - adaptada à seca",
+          "🪴 Solo pobre e bem drenado",
+          "☀️ Sol pleno o dia todo",
+          "💦 Rega apenas quando solo estiver seco por completo"
+        ],
+        commonIssues: [
+          "Podridão por excesso de água",
+          "Crescimento lento em solo fértil demais",
+          "Queima foliar em sombra"
+        ],
+        estimatedYield: "1-2 kg de fibras secas por planta adulta",
+        ...baseFallback,
+        waterNeeds: "Muito baixa - planta de deserto",
+        sunExposure: "Sol pleno intenso",
+        soilType: "Solo arenoso, pedregoso, pobre em matéria orgânica",
+        spacing: "1-1.5 metros entre plantas",
+        fertilization: "Quase nenhuma - excesso de nutrientes prejudica",
+        companionPlants: ["Outras cactáceas", "Suculentas", "Plantas do cerrado"],
+        pests: ["Pouco suscetível", "Cochonilhas em excesso de umidade"],
+        diseases: ["Podridão radicular por excesso de água"],  // ← CERTO (array)
+        pruning: "Remover folhas secas externas",
+        propagation: "Mudas laterais ou sementes",
+        harvestTips: ["Colher folhas externas maduras", "Secar à sombra", "Processar para extrair fibras"],
+        storage: "Fibras secas em local arejado",
+        nutritionalValue: "Não comestível - valor econômico nas fibras têxteis",
+  };
+    }
+
     // Análise genérica para plantas conhecidas
     if (plantInfo.exists) {
       return {
@@ -994,6 +2696,8 @@ Use dados REAIS baseados em pesquisas agrícolas. Seja PRÁTICO, REALISTA e espe
         ...baseFallback
       };
     }
+
+    
 
     return {
       harvestTime: "Informação não disponível",

@@ -9,6 +9,8 @@ import Home from './pages/Home';
 import Login from './pages/login';
 import Cadastro from './pages/cadastro';
 import RecuperarSenha from './pages/recuperar-senha';
+import CrauaPage from './pages/CrauaPage';
+
 
 // ✅ IMPORTE COM .tsx EXPLÍCITO
 import ETo from './pages/eto.tsx';
@@ -28,7 +30,8 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/recuperar-senha" element={<RecuperarSenha />} />
         <Route path="/home" element={<Home />} />
-        
+        <Route path="/craua" element={<CrauaPage />} />
+
         <Route path="/eto" element={<ETo />} />
         <Route path="/etcc" element={<ETCC />} />
         <Route path="/ko" element={<Ko />} />

@@ -35,7 +35,7 @@ export class GeminiAIService {
 
 
   private static readonly PLANT_ALIASES: { [key: string]: string } = {
-    
+    // SINÔNIMOS PARA CRAUÁ/CAROÁ - MÚLTIPLOS NOMES POPULARES
     'caroá': 'crauá',
     'caroá verdadeiro': 'crauá',
     'caroá de rede': 'crauá',

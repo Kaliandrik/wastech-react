@@ -83,18 +83,18 @@ const ETo: React.FC = () => {
       // ----------------------------------------------------------
       // 🔢 MÉDIAS DO PERÍODO
       // ----------------------------------------------------------
-      const temps = registrosDia.map((x) => x.main.temp);
+      const temps = registrosDia.map((x: any) => x.main.temp);
       const tempMax = Math.max(...temps);
       const tempMin = Math.min(...temps);
 
       const umidadeMedia =
-        registrosDia.reduce((s, x) => s + x.main.humidity, 0) / registrosDia.length;
+        registrosDia.reduce((s: number, x: any) => s + x.main.humidity, 0) / registrosDia.length;
 
       const ventoMedio =
-        registrosDia.reduce((s, x) => s + x.wind.speed, 0) / registrosDia.length;
+        registrosDia.reduce((s: number, x: any) => s + x.wind.speed, 0) / registrosDia.length;
 
       const nublados =
-        registrosDia.reduce((s, x) => s + x.clouds.all, 0) / registrosDia.length;
+        registrosDia.reduce((s: number, x: any) => s + x.clouds.all, 0) / registrosDia.length;
 
       const climaMedio = {
         tempMax,
@@ -184,7 +184,7 @@ const ETo: React.FC = () => {
   };
 
   // ==========================================================
-  // 🔵 INTERFACE (SEM MUDANÇAS)
+  // 🔵 INTERFACE
   // ==========================================================
   return (
     <div style={styles.container}>
@@ -321,30 +321,164 @@ const ETo: React.FC = () => {
   );
 };
 
-// 🔵 ESTILOS (inalterados)
+// 🔵 ESTILOS CORRIGIDOS COM TIPAGEM EXPLÍCITA
 const styles = {
-  container: { fontFamily: "Arial", padding: 20, background: "#f1f8f1", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center" },
-  title: { fontSize: 32, fontWeight: "bold", textAlign: "center", marginBottom: 10, color: "#1a3c1a" },
-  pageSubtitle: { fontSize: 18, textAlign: "center", marginBottom: 30, color: "#4b5563" },
-  geoButton: { color: "white", border: "none", borderRadius: 10, padding: "14px 24px", fontSize: 18, width: "100%", maxWidth: 300, marginBottom: 20, fontWeight: "bold" },
-  errorBox: { marginTop: 10, padding: 15, backgroundColor: "#fef2f2", border: "1px solid #fecaca", borderRadius: 10, color: "#dc2626", maxWidth: 400, textAlign: "center" },
-  card: { background: "white", width: "100%", maxWidth: 500, borderRadius: 15, boxShadow: "0 2px 10px rgba(0,0,0,0.15)", padding: 25, marginBottom: 20 },
-  separator: { width: "100%", maxWidth: 500, textAlign: "center", margin: "20px 0", position: "relative" },
-  separatorText: { background: "#f1f8f1", padding: "0 15px", color: "#6b7280", fontWeight: "bold" },
-  inputGroup: { marginBottom: 20 },
-  label: { display: "block", marginBottom: 8, fontWeight: "bold", color: "#374151", fontSize: 16 },
-  input: { width: "100%", padding: 12, border: "1px solid #d1d5db", borderRadius: 8, fontSize: 16, boxSizing: "border-box" },
-  buttonGroup: { display: "flex", gap: 10, marginTop: 20 },
-  button: { backgroundColor: "#22c55e", color: "white", border: "none", borderRadius: 8, padding: "12px 20px", fontSize: 16, cursor: "pointer", flex: 1, fontWeight: "bold" },
-  buttonSecondary: { backgroundColor: "#6b7280", color: "white", border: "none", borderRadius: 8, padding: "12px 20px", fontSize: 16, cursor: "pointer", flex: 1 },
-  resultado: { marginTop: 20, padding: 20, backgroundColor: "#f0fdf4", border: "2px solid #16a34a", borderRadius: 10 },
-  infoBox: { background: "white", width: "100%", maxWidth: 500, borderRadius: 15, boxShadow: "0 2px 10px rgba(0,0,0,0.15)", padding: 20, marginBottom: 20 },
-  infoTitle: { color: "#16a34a", marginBottom: 15, fontSize: 20 },
-  infoSubtitle: { color: "#15803d", marginTop: 15, marginBottom: 10, fontSize: 16 },
-  list: { marginLeft: 20, marginBottom: 15 },
-  listItem: { marginBottom: 8, lineHeight: 1.4 },
-  paragraph: { marginBottom: 10, lineHeight: 1.5, fontSize: 15 },
-  linkContainer: { display: "flex", gap: 10, width: "100%", maxWidth: 500 },
+  container: {
+    fontFamily: "Arial, sans-serif",
+    padding: "20px",
+    background: "#f1f8f1",
+    minHeight: "100vh",
+    display: "flex" as "flex",
+    flexDirection: "column" as "column",
+    alignItems: "center" as "center",
+  },
+  title: {
+    fontSize: "32px",
+    fontWeight: "bold" as "bold",
+    textAlign: "center" as "center",
+    marginBottom: "10px",
+    color: "#1a3c1a",
+  },
+  pageSubtitle: {
+    fontSize: "18px",
+    textAlign: "center" as "center",
+    marginBottom: "30px",
+    color: "#4b5563",
+  },
+  geoButton: {
+    color: "white",
+    border: "none",
+    borderRadius: "10px",
+    padding: "14px 24px",
+    fontSize: "18px",
+    width: "100%",
+    maxWidth: "300px",
+    marginBottom: "20px",
+    fontWeight: "bold" as "bold",
+    cursor: "pointer" as "pointer",
+  },
+  errorBox: {
+    marginTop: "10px",
+    padding: "15px",
+    backgroundColor: "#fef2f2",
+    border: "1px solid #fecaca",
+    borderRadius: "10px",
+    color: "#dc2626",
+    maxWidth: "400px",
+    textAlign: "center" as "center",
+  },
+  card: {
+    background: "white",
+    width: "100%",
+    maxWidth: "500px",
+    borderRadius: "15px",
+    boxShadow: "0 2px 10px rgba(0,0,0,0.15)",
+    padding: "25px",
+    marginBottom: "20px",
+  },
+  separator: {
+    width: "100%",
+    maxWidth: "500px",
+    textAlign: "center" as "center",
+    margin: "20px 0",
+    position: "relative" as "relative",
+  },
+  separatorText: {
+    background: "#f1f8f1",
+    padding: "0 15px",
+    color: "#6b7280",
+    fontWeight: "bold" as "bold",
+  },
+  inputGroup: {
+    marginBottom: "20px",
+  },
+  label: {
+    display: "block",
+    marginBottom: "8px",
+    fontWeight: "bold" as "bold",
+    color: "#374151",
+    fontSize: "16px",
+  },
+  input: {
+    width: "100%",
+    padding: "12px",
+    border: "1px solid #d1d5db",
+    borderRadius: "8px",
+    fontSize: "16px",
+    boxSizing: "border-box" as "border-box",
+  },
+  buttonGroup: {
+    display: "flex" as "flex",
+    gap: "10px",
+    marginTop: "20px",
+  },
+  button: {
+    backgroundColor: "#22c55e",
+    color: "white",
+    border: "none",
+    borderRadius: "8px",
+    padding: "12px 20px",
+    fontSize: "16px",
+    cursor: "pointer" as "pointer",
+    flex: 1,
+    fontWeight: "bold" as "bold",
+  },
+  buttonSecondary: {
+    backgroundColor: "#6b7280",
+    color: "white",
+    border: "none",
+    borderRadius: "8px",
+    padding: "12px 20px",
+    fontSize: "16px",
+    cursor: "pointer" as "pointer",
+    flex: 1,
+  },
+  resultado: {
+    marginTop: "20px",
+    padding: "20px",
+    backgroundColor: "#f0fdf4",
+    border: "2px solid #16a34a",
+    borderRadius: "10px",
+  },
+  infoBox: {
+    background: "white",
+    width: "100%",
+    maxWidth: "500px",
+    borderRadius: "15px",
+    boxShadow: "0 2px 10px rgba(0,0,0,0.15)",
+    padding: "20px",
+    marginBottom: "20px",
+  },
+  infoTitle: {
+    color: "#16a34a",
+    marginBottom: "15px",
+    fontSize: "20px",
+  },
+  infoSubtitle: {
+    color: "#15803d",
+    marginTop: "15px",
+    marginBottom: "10px",
+    fontSize: "16px",
+  },
+  list: {
+    marginLeft: "20px",
+    marginBottom: "15px",
+  },
+  listItem: {
+    marginBottom: "8px",
+    lineHeight: 1.4,
+  },
+  paragraph: {
+    marginBottom: "10px",
+    lineHeight: 1.5,
+    fontSize: "15px",
+  },
+  linkContainer: {
+    display: "flex" as "flex",
+    gap: "10px",
+    width: "100%",
+    maxWidth: "500px",
+  },
 };
 
 export default ETo;

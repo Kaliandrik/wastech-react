@@ -277,6 +277,8 @@ export const Dashboard: React.FC = () => {
                 </div>
               </div>
 
+
+
               {/* Clima */}
               <div 
                 className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl md:rounded-2xl p-4 md:p-6 text-center hover:shadow-lg transition-all duration-300 cursor-pointer border border-blue-200 hover:border-blue-300 group"
@@ -404,6 +406,100 @@ export const Dashboard: React.FC = () => {
               </div>
             </div>
           </div>
+
+
+          {/* MONITORAMENTO DE INCÊNDIOS - NOVA SEÇÃO */}
+<div className="bg-gradient-to-br from-red-50 via-orange-50 to-red-100 rounded-xl shadow-sm p-4 md:p-6 border border-red-200">
+  <div className="mb-6 md:mb-8">
+    <h2 className="text-lg md:text-2xl font-bold text-gray-800 mb-2 md:mb-3 flex items-center">
+      <div className="bg-gradient-to-br from-red-500 to-orange-500 p-2 md:p-3 rounded-lg md:rounded-xl mr-3 md:mr-4">
+        <svg className="w-5 h-5 md:w-7 md:h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clipRule="evenodd"/>
+        </svg>
+      </div>
+      <span className="text-base md:text-xl">Monitoramento de Incêndios</span>
+    </h2>
+    <p className="text-gray-600 text-sm md:text-lg">Monitoramento em tempo real de queimadas na América do Sul</p>
+  </div>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
+    {/* Card Mapa de Calor */}
+    <div 
+      onClick={() => navigate("/incendios")}
+      className="bg-gradient-to-br from-red-50 to-orange-100 rounded-xl md:rounded-2xl p-4 md:p-6 text-center hover:shadow-lg transition-all duration-300 cursor-pointer border border-red-200 hover:border-red-300 group"
+    >
+      <div className="bg-gradient-to-br from-red-500 to-orange-500 w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-5 shadow-md group-hover:scale-110 transition-transform duration-300">
+        <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z" clipRule="evenodd"/>
+        </svg>
+      </div>
+      <h3 className="font-bold text-gray-800 mb-2 md:mb-3 text-base md:text-lg">Mapa de Calor</h3>
+      <p className="text-gray-600 mb-3 md:mb-4 text-xs md:text-sm leading-relaxed">Focos de incêndio em tempo real</p>
+      <div className="bg-red-500/10 rounded-lg py-1.5 px-2 md:py-2 md:px-3 inline-flex items-center justify-center">
+        <svg className="w-3 h-3 md:w-4 md:h-4 text-red-600 mr-1 md:mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clipRule="evenodd"/>
+        </svg>
+        <span className="text-red-600 font-semibold text-xs md:text-sm">Tempo real</span>
+      </div>
+    </div>
+
+    {/* Card Alertas */}
+    <div 
+      onClick={() => navigate("/incendios")}
+      className="bg-gradient-to-br from-orange-50 to-yellow-100 rounded-xl md:rounded-2xl p-4 md:p-6 text-center hover:shadow-lg transition-all duration-300 cursor-pointer border border-orange-200 hover:border-orange-300 group"
+    >
+      <div className="bg-gradient-to-br from-orange-500 to-yellow-500 w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-5 shadow-md group-hover:scale-110 transition-transform duration-300">
+        <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd"/>
+        </svg>
+      </div>
+      <h3 className="font-bold text-gray-800 mb-2 md:mb-3 text-base md:text-lg">Alertas</h3>
+      <p className="text-gray-600 mb-3 md:mb-4 text-xs md:text-sm leading-relaxed">Notificações de proximidade</p>
+      <div className="bg-orange-500/10 rounded-lg py-1.5 px-2 md:py-2 md:px-3 inline-flex items-center justify-center">
+        <svg className="w-3 h-3 md:w-4 md:h-4 text-orange-600 mr-1 md:mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd"/>
+        </svg>
+        <span className="text-orange-600 font-semibold text-xs md:text-sm">Proteção</span>
+      </div>
+    </div>
+
+    {/* Card Dados NASA */}
+    <div 
+      onClick={() => navigate("/incendios")}
+      className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl md:rounded-2xl p-4 md:p-6 text-center hover:shadow-lg transition-all duration-300 cursor-pointer border border-blue-200 hover:border-blue-300 group sm:col-span-2 md:col-span-1"
+    >
+      <div className="bg-gradient-to-br from-blue-500 to-indigo-500 w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-5 shadow-md group-hover:scale-110 transition-transform duration-300">
+        <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+          <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd"/>
+        </svg>
+      </div>
+      <h3 className="font-bold text-gray-800 mb-2 md:mb-3 text-base md:text-lg">Dados NASA</h3>
+      <p className="text-gray-600 mb-3 md:mb-4 text-xs md:text-sm leading-relaxed">Satélites VIIRS/MODIS</p>
+      <div className="bg-blue-500/10 rounded-lg py-1.5 px-2 md:py-2 md:px-3 inline-flex items-center justify-center">
+        <svg className="w-3 h-3 md:w-4 md:h-4 text-blue-600 mr-1 md:mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"/>
+        </svg>
+        <span className="text-blue-600 font-semibold text-xs md:text-sm">Satélite</span>
+      </div>
+    </div>
+  </div>
+
+  <button
+    onClick={() => navigate("/incendios")}
+    className="w-full bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white py-3 md:py-4 rounded-lg md:rounded-xl font-semibold transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm md:text-base"
+  >
+    <svg className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" fill="currentColor" viewBox="0 0 20 20">
+      <path
+        fillRule="evenodd"
+        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+        clipRule="evenodd"
+      />
+    </svg>
+    Acessar Monitoramento de Incêndios
+  </button>
+</div>
+
 
           {/* Guias de Plantas Brasileiras */}
 <div className="bg-white rounded-xl shadow-sm p-4 md:p-6 border border-gray-100">

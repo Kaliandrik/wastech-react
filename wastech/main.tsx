@@ -1,4 +1,3 @@
-// wastech/main.tsx
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -11,12 +10,13 @@ import Cadastro from './pages/cadastro';
 import RecuperarSenha from './pages/recuperar-senha';
 import CrauaPage from './pages/CrauaPage';
 
-
 // ✅ IMPORTE COM .tsx EXPLÍCITO
 import ETo from './pages/eto.tsx';
 import ETCC from './pages/etcc.tsx';  
 import Ko from './pages/ko.tsx';
 
+// ✅ IMPORTE A NOVA PÁGINA DE INCÊNDIOS
+import Incendios from './pages/Incendios';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -35,6 +35,9 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/eto" element={<ETo />} />
         <Route path="/etcc" element={<ETCC />} />
         <Route path="/ko" element={<Ko />} />
+        
+        {/* ✅ NOVA ROTA PARA MONITORAMENTO DE INCÊNDIOS */}
+        <Route path="/incendios" element={<Incendios />} />
       </Routes>
     </Router>
   </StrictMode>,

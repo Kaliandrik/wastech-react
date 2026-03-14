@@ -188,296 +188,630 @@ const ETo: React.FC = () => {
   // ==========================================================
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>Calculadora de ETo</h1>
-      <p style={styles.pageSubtitle}>Evapotranspiração de Referência</p>
+      <div style={styles.header}>
+        <h1 style={styles.title}>Calculadora de ETo</h1>
+        <p style={styles.pageSubtitle}>Evapotranspiração de Referência</p>
+      </div>
 
       <button
         onClick={handleLocation}
         disabled={loading}
         style={{
           ...styles.geoButton,
-          backgroundColor: loading ? "#94a3b8" : "#22c55e",
+          ...(loading ? styles.geoButtonLoading : styles.geoButtonActive),
         }}
       >
-        {loading ? "📍 Obtendo dados..." : "📍 Usar minha localização automática"}
+        <span style={styles.geoButtonIcon}>📍</span>
+        {loading ? "Obtendo localização..." : "Usar minha localização"}
       </button>
 
-      {error && <div style={styles.errorBox}>❌ {error}</div>}
+      {error && (
+        <div style={styles.errorBox}>
+          <span style={styles.errorIcon}>❌</span>
+          {error}
+        </div>
+      )}
 
       {/* RESULTADO AUTOMÁTICO */}
       {data && !manualMode && (
         <div style={styles.card}>
-          <h2 style={{ textAlign: "center" }}>📍 Coordenadas</h2>
-          <p><strong>Latitude:</strong> {data.lat.toFixed(3)}</p>
-          <p><strong>Longitude:</strong> {data.lon.toFixed(3)}</p>
+          <div style={styles.cardHeader}>
+            <h2 style={styles.cardTitle}>📍 Coordenadas</h2>
+          </div>
+          <div style={styles.coordContainer}>
+            <div style={styles.coordItem}>
+              <span style={styles.coordLabel}>Latitude:</span>
+              <span style={styles.coordValue}>{data.lat.toFixed(3)}°</span>
+            </div>
+            <div style={styles.coordItem}>
+              <span style={styles.coordLabel}>Longitude:</span>
+              <span style={styles.coordValue}>{data.lon.toFixed(3)}°</span>
+            </div>
+          </div>
 
-          <h3 style={{ textAlign: "center", marginTop: "10px" }}>🌦️ Médias (06h–18h)</h3>
+          <div style={styles.divider} />
 
-          <p>🌡️ <strong>Máxima:</strong> {data.tempMax.toFixed(1)} °C</p>
-          <p>🌡️ <strong>Mínima:</strong> {data.tempMin.toFixed(1)} °C</p>
-          <p>💧 <strong>Umidade média:</strong> {data.umidade}%</p>
-          <p>💨 <strong>Vento médio:</strong> {data.vento} m/s</p>
-          <p>☁️ <strong>Nuvens médias:</strong> {data.nuvens}%</p>
+          <h3 style={styles.sectionTitle}>🌦️ Médias do período (06h–18h)</h3>
+          
+          <div style={styles.weatherGrid}>
+            <div style={styles.weatherItem}>
+              <span style={styles.weatherIcon}>🌡️</span>
+              <div>
+                <div style={styles.weatherLabel}>Máxima</div>
+                <div style={styles.weatherValue}>{data.tempMax.toFixed(1)}°C</div>
+              </div>
+            </div>
+            <div style={styles.weatherItem}>
+              <span style={styles.weatherIcon}>🌡️</span>
+              <div>
+                <div style={styles.weatherLabel}>Mínima</div>
+                <div style={styles.weatherValue}>{data.tempMin.toFixed(1)}°C</div>
+              </div>
+            </div>
+            <div style={styles.weatherItem}>
+              <span style={styles.weatherIcon}>💧</span>
+              <div>
+                <div style={styles.weatherLabel}>Umidade</div>
+                <div style={styles.weatherValue}>{data.umidade}%</div>
+              </div>
+            </div>
+            <div style={styles.weatherItem}>
+              <span style={styles.weatherIcon}>💨</span>
+              <div>
+                <div style={styles.weatherLabel}>Vento</div>
+                <div style={styles.weatherValue}>{data.vento} m/s</div>
+              </div>
+            </div>
+            <div style={styles.weatherItem}>
+              <span style={styles.weatherIcon}>☁️</span>
+              <div>
+                <div style={styles.weatherLabel}>Nuvens</div>
+                <div style={styles.weatherValue}>{data.nuvens}%</div>
+              </div>
+            </div>
+          </div>
 
-          <h2 style={{ textAlign: "center", marginTop: "20px", fontSize: "22px" }}>
-            📊 ETo estimada de hoje:{" "}
-            <span style={{ color: "#16a34a" }}>{data.eto} mm/dia</span>
-          </h2>
-
-          <p style={{ fontSize: "1.1rem", color: "#2e7d32", textAlign: "center" }}>
-            💧 Recomendação: {data.eto} L/m²
-          </p>
+          <div style={styles.resultCard}>
+            <div style={styles.resultLabel}>ETo estimada para hoje</div>
+            <div style={styles.resultValue}>
+              <span style={styles.resultNumber}>{data.eto}</span>
+              <span style={styles.resultUnit}>mm/dia</span>
+            </div>
+            <div style={styles.resultDesc}>
+              💧 Recomendação: {data.eto} L/m²
+            </div>
+          </div>
         </div>
       )}
 
-      {/* ... resto da interface permanece igual ... */}
-
       <div style={styles.separator}>
-        <span style={styles.separatorText}>OU</span>
+        <span style={styles.separatorLine} />
+        <span style={styles.separatorText}>ou</span>
+        <span style={styles.separatorLine} />
       </div>
 
       {/* MANUAL */}
       <div style={styles.card}>
-        <h3 style={{ textAlign: "center" }}>📝 Inserir Dados Manualmente</h3>
+        <div style={styles.cardHeader}>
+          <h2 style={styles.cardTitle}>📝 Inserir Dados Manualmente</h2>
+        </div>
 
         <div style={styles.inputGroup}>
-          <label style={styles.label}>🌡️ Temperatura Média (°C):</label>
+          <label style={styles.label}>
+            <span style={styles.labelIcon}>🌡️</span>
+            Temperatura Média (°C)
+          </label>
           <input
             type="number"
             value={temperatura}
             onChange={(e) => setTemperatura(e.target.value)}
             style={styles.input}
+            placeholder="Ex: 25.5"
           />
         </div>
 
         <div style={styles.inputGroup}>
-          <label style={styles.label}>💧 Umidade Relativa (%):</label>
+          <label style={styles.label}>
+            <span style={styles.labelIcon}>💧</span>
+            Umidade Relativa (%)
+          </label>
           <input
             type="number"
             value={umidade}
             onChange={(e) => setUmidade(e.target.value)}
             style={styles.input}
+            placeholder="Ex: 70"
           />
         </div>
 
         <div style={styles.inputGroup}>
-          <label style={styles.label}>💨 Vento (m/s):</label>
+          <label style={styles.label}>
+            <span style={styles.labelIcon}>💨</span>
+            Velocidade do Vento (m/s)
+          </label>
           <input
             type="number"
             value={vento}
             onChange={(e) => setVento(e.target.value)}
             style={styles.input}
+            placeholder="Ex: 2.5"
           />
         </div>
 
         <div style={styles.inputGroup}>
-          <label style={styles.label}>☀️ Radiação Solar (MJ/m²/dia):</label>
+          <label style={styles.label}>
+            <span style={styles.labelIcon}>☀️</span>
+            Radiação Solar (MJ/m²/dia)
+          </label>
           <input
             type="number"
             value={radiacao}
             onChange={(e) => setRadiacao(e.target.value)}
             style={styles.input}
+            placeholder="Ex: 20"
           />
         </div>
 
         <div style={styles.buttonGroup}>
-          <button onClick={calcularEToManual} style={styles.button}>🧮 Calcular</button>
-          <button onClick={limparCampos} style={styles.buttonSecondary}>🗑️ Limpar</button>
+          <button onClick={calcularEToManual} style={styles.buttonPrimary}>
+            <span style={styles.buttonIcon}>🧮</span>
+            Calcular
+          </button>
+          <button onClick={limparCampos} style={styles.buttonSecondary}>
+            <span style={styles.buttonIcon}>🗑️</span>
+            Limpar
+          </button>
         </div>
 
         {resultadoManual !== null && (
-          <div style={styles.resultado}>
-            <h3 style={{ color: "#16a34a", textAlign: "center" }}>📊 Resultado</h3>
-            <h4 style={{ color: "#15803d", fontSize: "24px", textAlign: "center" }}>
-              💧 ETo = {resultadoManual} mm/dia
-            </h4>
+          <div style={styles.manualResult}>
+            <div style={styles.resultCard}>
+              <div style={styles.resultLabel}>Resultado do cálculo manual</div>
+              <div style={styles.resultValue}>
+                <span style={styles.resultNumber}>{resultadoManual}</span>
+                <span style={styles.resultUnit}>mm/dia</span>
+              </div>
+            </div>
           </div>
         )}
       </div>
 
       {/* INFO */}
-      <div style={styles.infoBox}>
+      <div style={styles.infoCard}>
         <h3 style={styles.infoTitle}>🌱 O que é ETo?</h3>
-        <p style={styles.paragraph}>
+        <p style={styles.infoText}>
           ETo é a evapotranspiração de referência — quanto uma grama padrão consome de água em 1 dia.
         </p>
-
+        
         <h4 style={styles.infoSubtitle}>Como usar:</h4>
-        <ul style={styles.list}>
-          <li style={styles.listItem}>Use o valor para calcular a irrigação diária.</li>
-          <li style={styles.listItem}>Aplique ETc = ETo × Kc.</li>
+        <ul style={styles.infoList}>
+          <li style={styles.infoListItem}>
+            <span style={styles.infoBullet}>•</span>
+            Use o valor para calcular a irrigação diária
+          </li>
+          <li style={styles.infoListItem}>
+            <span style={styles.infoBullet}>•</span>
+            Aplique ETc = ETo × Kc (coeficiente da cultura)
+          </li>
         </ul>
       </div>
 
-      <div style={styles.linkContainer}>
-        <Link to="/dashboard">
-          <button style={styles.buttonSecondary}>↩️ Voltar</button>
+      <div style={styles.navigation}>
+        <Link to="/dashboard" style={styles.navLink}>
+          <button style={styles.navButtonSecondary}>
+            <span style={styles.navIcon}>↩️</span>
+            Voltar
+          </button>
         </Link>
-        <Link to="/etcc">
-          <button style={styles.button}>➡️ Calcular ETc</button>
+        <Link to="/etcc" style={styles.navLink}>
+          <button style={styles.navButtonPrimary}>
+            <span style={styles.navIcon}>➡️</span>
+            Calcular ETc
+          </button>
         </Link>
       </div>
     </div>
   );
 };
 
-// 🔵 ESTILOS CORRIGIDOS COM TIPAGEM EXPLÍCITA
+// 🎨 ESTILOS MODERNOS E RESPONSIVOS
 const styles = {
   container: {
-    fontFamily: "Arial, sans-serif",
-    padding: "20px",
-    background: "#f1f8f1",
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    padding: "24px 16px",
+    background: "linear-gradient(135deg, #f0f9f0 0%, #e8f5e8 100%)",
     minHeight: "100vh",
     display: "flex" as "flex",
     flexDirection: "column" as "column",
     alignItems: "center" as "center",
   },
-  title: {
-    fontSize: "32px",
-    fontWeight: "bold" as "bold",
+  header: {
     textAlign: "center" as "center",
-    marginBottom: "10px",
-    color: "#1a3c1a",
+    marginBottom: "32px",
+  },
+  title: {
+    fontSize: "clamp(28px, 6vw, 36px)",
+    fontWeight: "700" as "700",
+    background: "linear-gradient(135deg, #166534 0%, #22c55e 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    marginBottom: "8px",
+    letterSpacing: "-0.02em",
   },
   pageSubtitle: {
-    fontSize: "18px",
-    textAlign: "center" as "center",
-    marginBottom: "30px",
+    fontSize: "16px",
     color: "#4b5563",
+    fontWeight: "400" as "400",
   },
   geoButton: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "8px",
     color: "white",
     border: "none",
-    borderRadius: "10px",
-    padding: "14px 24px",
-    fontSize: "18px",
+    borderRadius: "50px",
+    padding: "14px 28px",
+    fontSize: "16px",
     width: "100%",
-    maxWidth: "300px",
-    marginBottom: "20px",
-    fontWeight: "bold" as "bold",
+    maxWidth: "320px",
+    marginBottom: "24px",
+    fontWeight: "600" as "600",
     cursor: "pointer" as "pointer",
+    transition: "all 0.2s ease",
+    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+  },
+  geoButtonActive: {
+    backgroundColor: "#22c55e",
+    ":hover": {
+      backgroundColor: "#16a34a",
+      transform: "translateY(-2px)",
+      boxShadow: "0 10px 15px -3px rgba(34, 197, 94, 0.3)",
+    },
+  },
+  geoButtonLoading: {
+    backgroundColor: "#94a3b8",
+    cursor: "not-allowed",
+  },
+  geoButtonIcon: {
+    fontSize: "18px",
   },
   errorBox: {
-    marginTop: "10px",
-    padding: "15px",
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    marginTop: "8px",
+    marginBottom: "16px",
+    padding: "12px 20px",
     backgroundColor: "#fef2f2",
     border: "1px solid #fecaca",
-    borderRadius: "10px",
+    borderRadius: "12px",
     color: "#dc2626",
     maxWidth: "400px",
-    textAlign: "center" as "center",
+    width: "100%",
+    fontSize: "14px",
+  },
+  errorIcon: {
+    fontSize: "16px",
   },
   card: {
     background: "white",
     width: "100%",
-    maxWidth: "500px",
-    borderRadius: "15px",
-    boxShadow: "0 2px 10px rgba(0,0,0,0.15)",
-    padding: "25px",
+    maxWidth: "520px",
+    borderRadius: "24px",
+    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+    padding: "24px",
+    marginBottom: "24px",
+    transition: "transform 0.2s ease",
+    ":hover": {
+      transform: "translateY(-4px)",
+    },
+  },
+  cardHeader: {
     marginBottom: "20px",
+  },
+  cardTitle: {
+    fontSize: "20px",
+    fontWeight: "600" as "600",
+    color: "#166534",
+    margin: 0,
+  },
+  coordContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    gap: "16px",
+    marginBottom: "16px",
+  },
+  coordItem: {
+    flex: 1,
+    backgroundColor: "#f8faf8",
+    padding: "12px",
+    borderRadius: "12px",
+    textAlign: "center" as "center",
+  },
+  coordLabel: {
+    display: "block",
+    fontSize: "12px",
+    color: "#6b7280",
+    marginBottom: "4px",
+  },
+  coordValue: {
+    fontSize: "16px",
+    fontWeight: "600" as "600",
+    color: "#166534",
+  },
+  divider: {
+    height: "2px",
+    background: "linear-gradient(90deg, transparent, #22c55e, transparent)",
+    margin: "20px 0",
+  },
+  sectionTitle: {
+    fontSize: "18px",
+    fontWeight: "600" as "600",
+    color: "#374151",
+    marginBottom: "16px",
+  },
+  weatherGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+    gap: "12px",
+    marginBottom: "20px",
+  },
+  weatherItem: {
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    backgroundColor: "#f8faf8",
+    padding: "12px",
+    borderRadius: "12px",
+  },
+  weatherIcon: {
+    fontSize: "20px",
+  },
+  weatherLabel: {
+    fontSize: "12px",
+    color: "#6b7280",
+  },
+  weatherValue: {
+    fontSize: "16px",
+    fontWeight: "600" as "600",
+    color: "#166534",
+  },
+  resultCard: {
+    backgroundColor: "#f0fdf4",
+    border: "2px solid #22c55e",
+    borderRadius: "16px",
+    padding: "20px",
+    textAlign: "center" as "center",
+  },
+  resultLabel: {
+    fontSize: "14px",
+    color: "#166534",
+    marginBottom: "8px",
+    textTransform: "uppercase" as "uppercase",
+    letterSpacing: "0.05em",
+  },
+  resultValue: {
+    display: "flex",
+    alignItems: "baseline",
+    justifyContent: "center",
+    gap: "4px",
+    marginBottom: "8px",
+  },
+  resultNumber: {
+    fontSize: "36px",
+    fontWeight: "700" as "700",
+    color: "#166534",
+    lineHeight: 1,
+  },
+  resultUnit: {
+    fontSize: "16px",
+    color: "#4b5563",
+    fontWeight: "500" as "500",
+  },
+  resultDesc: {
+    fontSize: "14px",
+    color: "#15803d",
+    fontWeight: "500" as "500",
   },
   separator: {
     width: "100%",
-    maxWidth: "500px",
-    textAlign: "center" as "center",
-    margin: "20px 0",
-    position: "relative" as "relative",
+    maxWidth: "520px",
+    display: "flex",
+    alignItems: "center",
+    gap: "16px",
+    margin: "16px 0",
+  },
+  separatorLine: {
+    flex: 1,
+    height: "1px",
+    background: "linear-gradient(90deg, transparent, #22c55e, transparent)",
   },
   separatorText: {
-    background: "#f1f8f1",
-    padding: "0 15px",
-    color: "#6b7280",
-    fontWeight: "bold" as "bold",
+    color: "#4b5563",
+    fontWeight: "500" as "500",
+    fontSize: "14px",
   },
   inputGroup: {
     marginBottom: "20px",
   },
   label: {
-    display: "block",
+    display: "flex",
+    alignItems: "center",
+    gap: "6px",
     marginBottom: "8px",
-    fontWeight: "bold" as "bold",
+    fontWeight: "500" as "500",
     color: "#374151",
+    fontSize: "14px",
+  },
+  labelIcon: {
     fontSize: "16px",
   },
   input: {
     width: "100%",
-    padding: "12px",
-    border: "1px solid #d1d5db",
-    borderRadius: "8px",
-    fontSize: "16px",
+    padding: "12px 16px",
+    border: "2px solid #e5e7eb",
+    borderRadius: "12px",
+    fontSize: "15px",
+    transition: "all 0.2s ease",
     boxSizing: "border-box" as "border-box",
+    outline: "none",
+    ":focus": {
+      borderColor: "#22c55e",
+      boxShadow: "0 0 0 3px rgba(34, 197, 94, 0.2)",
+    },
   },
   buttonGroup: {
     display: "flex" as "flex",
-    gap: "10px",
-    marginTop: "20px",
+    gap: "12px",
+    marginTop: "24px",
   },
-  button: {
+  buttonPrimary: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "6px",
     backgroundColor: "#22c55e",
     color: "white",
     border: "none",
-    borderRadius: "8px",
-    padding: "12px 20px",
-    fontSize: "16px",
+    borderRadius: "12px",
+    padding: "14px 20px",
+    fontSize: "15px",
+    fontWeight: "600" as "600",
     cursor: "pointer" as "pointer",
     flex: 1,
-    fontWeight: "bold" as "bold",
+    transition: "all 0.2s ease",
+    ":hover": {
+      backgroundColor: "#16a34a",
+      transform: "translateY(-2px)",
+      boxShadow: "0 10px 15px -3px rgba(34, 197, 94, 0.3)",
+    },
   },
   buttonSecondary: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "6px",
     backgroundColor: "#6b7280",
     color: "white",
     border: "none",
-    borderRadius: "8px",
-    padding: "12px 20px",
-    fontSize: "16px",
+    borderRadius: "12px",
+    padding: "14px 20px",
+    fontSize: "15px",
+    fontWeight: "600" as "600",
     cursor: "pointer" as "pointer",
     flex: 1,
+    transition: "all 0.2s ease",
+    ":hover": {
+      backgroundColor: "#4b5563",
+      transform: "translateY(-2px)",
+    },
   },
-  resultado: {
-    marginTop: "20px",
-    padding: "20px",
-    backgroundColor: "#f0fdf4",
-    border: "2px solid #16a34a",
-    borderRadius: "10px",
-  },
-  infoBox: {
-    background: "white",
-    width: "100%",
-    maxWidth: "500px",
-    borderRadius: "15px",
-    boxShadow: "0 2px 10px rgba(0,0,0,0.15)",
-    padding: "20px",
-    marginBottom: "20px",
-  },
-  infoTitle: {
-    color: "#16a34a",
-    marginBottom: "15px",
-    fontSize: "20px",
-  },
-  infoSubtitle: {
-    color: "#15803d",
-    marginTop: "15px",
-    marginBottom: "10px",
+  buttonIcon: {
     fontSize: "16px",
   },
-  list: {
-    marginLeft: "20px",
-    marginBottom: "15px",
+  manualResult: {
+    marginTop: "20px",
   },
-  listItem: {
-    marginBottom: "8px",
-    lineHeight: 1.4,
-  },
-  paragraph: {
-    marginBottom: "10px",
-    lineHeight: 1.5,
-    fontSize: "15px",
-  },
-  linkContainer: {
-    display: "flex" as "flex",
-    gap: "10px",
+  infoCard: {
+    background: "white",
     width: "100%",
-    maxWidth: "500px",
+    maxWidth: "520px",
+    borderRadius: "24px",
+    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+    padding: "24px",
+    marginBottom: "24px",
+  },
+  infoTitle: {
+    fontSize: "18px",
+    fontWeight: "600" as "600",
+    color: "#166534",
+    marginBottom: "12px",
+  },
+  infoText: {
+    fontSize: "15px",
+    lineHeight: "1.6",
+    color: "#4b5563",
+    marginBottom: "16px",
+  },
+  infoSubtitle: {
+    fontSize: "16px",
+    fontWeight: "600" as "600",
+    color: "#374151",
+    marginBottom: "12px",
+  },
+  infoList: {
+    listStyle: "none",
+    padding: 0,
+    margin: 0,
+  },
+  infoListItem: {
+    display: "flex",
+    alignItems: "flex-start",
+    gap: "8px",
+    marginBottom: "8px",
+    fontSize: "14px",
+    color: "#4b5563",
+    lineHeight: "1.5",
+  },
+  infoBullet: {
+    color: "#22c55e",
+    fontSize: "18px",
+    lineHeight: 1,
+  },
+  navigation: {
+    display: "flex" as "flex",
+    gap: "12px",
+    width: "100%",
+    maxWidth: "520px",
+  },
+  navLink: {
+    flex: 1,
+    textDecoration: "none",
+  },
+  navButtonPrimary: {
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "6px",
+    backgroundColor: "#22c55e",
+    color: "white",
+    border: "none",
+    borderRadius: "12px",
+    padding: "14px 20px",
+    fontSize: "15px",
+    fontWeight: "600" as "600",
+    cursor: "pointer" as "pointer",
+    transition: "all 0.2s ease",
+    ":hover": {
+      backgroundColor: "#16a34a",
+      transform: "translateY(-2px)",
+    },
+  },
+  navButtonSecondary: {
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "6px",
+    backgroundColor: "white",
+    color: "#4b5563",
+    border: "2px solid #e5e7eb",
+    borderRadius: "12px",
+    padding: "14px 20px",
+    fontSize: "15px",
+    fontWeight: "600" as "600",
+    cursor: "pointer" as "pointer",
+    transition: "all 0.2s ease",
+    ":hover": {
+      backgroundColor: "#f8faf8",
+      borderColor: "#22c55e",
+      transform: "translateY(-2px)",
+    },
+  },
+  navIcon: {
+    fontSize: "16px",
   },
 };
 
